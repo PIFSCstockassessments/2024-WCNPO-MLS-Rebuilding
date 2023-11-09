@@ -1,0 +1,323 @@
+---
+title: "Download, QC & Reformat LL Observer Data"
+author: "M Kapur, adapted from B Walsh (2013)"
+date: "17 Feb 2017 Ongoing"
+output:
+  html_notebook:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+    depth: 3
+    self_contained: no
+  html_document:
+    number_sections: yes
+    toc: yes
+    depth: 3
+    self_contained: no
+---
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "G:/_LLDP")
+```
+<B> Background </b><br>
+The previous incarnation of this protocol stated: "This file presents the commands used to prepare a data frame for use in a swordfish CPUE standardization to be conducted under ISC auspices in January 2013." I modify it here such that the user can extract, download, quality-control and reformat any Longline Data data in the procedure identical to that of B Walsh. This was created by combining a scripts left on the NOFISH server with materials from <b>NOAA Technical Memorandum NMFS-PIFSC-57, Walsh & Brodziak (2016)</b>. Previously, Walsh referred to the original dataframe as "Swordfish Data", but really this was a an amalgamation of Longline data, thus including all species (including bycatch). The principal edits to this material are: <br>
+  1. Preserving field headings to match data stored in ORADATA, thus reducing confusion between data in and outputs  <br>
+  2. Reducing code length/processing time though the use of pipes<br>
+  3. Integrating the Oracle download, QA/QC, and data generation steps to improve documentation and reproducability<br>
+  4. Including notes and instructions for each code block<br><Br>
+Direct edits and questions to maia.kapur@noaa.gov.  
+  
+# Acquire data from Oracle
+## Initial connection to the ORACLE data
+This can alternatively be done manually via the Data Trawler. You need to ensure you have the Oracle software installed and the path to the PIC DSN in your Windows settings; requires ITS. Other obvious pre-req is that you have non-disclosure aggreements and access to the fisheries data.
+```{r, warning = F, message = F}
+## load packages
+library(RODBC)
+library(reshape2)
+library(plyr)
+library(dplyr)
+library(tidyverse)
+
+
+## designate username and password
+UID = 'msculley'
+pwd = 'CW2816#gpe3K'
+con  =  odbcConnect(dsn="PIC", uid=UID, pwd = pwd, believeNRows=FALSE)
+# odbcGetInfo(con)
+```
+## Download dataframes
+Adapted from Walsh & Brodziak (2016), <i>Example A 2. Summary of data frame preparation for the PIFSC longline logbook database.</i> For ease, use the ORADATA schema. This is identical to the materials stored relationally in OPTD, but in this case it is a flat file & already has fields such as SEA_SURFACE_TEMPERATURE. The con object made above establishes the connection to the ORACLE database; use an SQL statement to extract the data you want.<B> You can alternatively download and save CSVs from Data Trawler, but you will likely time-out for large queries.</b>
+```{r message = F, tidy=TRUE, warning = FALSE, width=70}
+sqlTables(con, schema="ORADATA")
+```
+Show the alphabetized column headers available in a given table <i>before</i> downloading. The 1:10 truncates the list to the first 10 alphabetized column names.
+```{r message = F, tidy=TRUE, warning = FALSE, width=70}
+sort(sqlColumns(con, schema="ORADATA",sqtable="FC048A19")[,'COLUMN_NAME'])[1:10]
+```
+Use an SQL statement to query and download relevant data. You can use WHERE statements to narrow things down. This takes about 5 mins to run.
+```{r message = F, eval = F, tidy=TRUE, warning = FALSE, width=70, eval = FALSE}
+## Longline Data
+p = proc.time()
+logbook = sqlQuery(con, "SELECT * from ORADATA.FC048A19") ## FC048A19 is the same way it will appear on Data Trawler
+ttr = proc.time() - p ## can use this to find out how long it took to download
+# class(logbook) ## should be dataframe
+# ## close connection
+close(con)
+```
+You can save CSVs and/or assign downloaded table(s) to R objects. The logbook object is the full, downloaded dataset.<b> The naming scheme below was implemented by M Kapur and is retained throughout this document. It departs from that established by B Walsh.</b>
+```{r}
+#save(logbook ,file = 'logbook.rdata')
+load('logbook.rdata')
+logbook1<- read.csv("G:\\MLS\\logbook_90_99_09242021.csv")
+  read.csv("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\HI Data\\Catch\\logbook_90_99_09242021.csv")
+logbook2<- read.csv("G:\\MLS\\logbook_00_04_09242021.csv")
+  read.csv("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\HI Data\\Catch\\logbook_00_04_09242021.csv")
+logbook3<- read.csv("G:\\MLS\\logbook_05_09_09242021.csv")
+  read.csv("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\HI Data\\Catch\\logbook_05_09_09242021.csv")
+logbook4<- read.csv("G:\\MLS\\logbook_10_14_09242021.csv")
+  read.csv("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\HI Data\\Catch\\logbook_10_14_09242021.csv")
+logbook5<- read.csv("G:\\MLS\\logbook_15_20_09242021.csv")
+  read.csv("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\HI Data\\Catch\\logbook_15_20_09242021.csv")
+
+  
+logbook<-rbind(logbook1,logbook2)
+logbook<-rbind(logbook,logbook3)
+logbook<-rbind(logbook,logbook4)
+logbook<-rbind(logbook,logbook5)
+## This is a species key I entered based on Logbook Reference Codes. It's alternatively availabile in one of the three relational tables in OPDT.
+spcodes = read.csv('G:/sppcodes.csv')
+```
+# Aggregate by Set
+## Create Unique Set Identifier
+For data 1998 and later, the field SERIALNUM2 is the unique identifier for each set. For years prior to 1998, one must <b>construct</b> a unique identifier for each trip-set. Bill used a concatenation of the fields for landing year, trip number, and serial number of logbook to produce a unique identifier for each trip-set. <br><br>
+The steps to do this are:<br>
++ Convert HAUL_YEAR, TRIP_NUMBER, and SERIAL_NUMBER2 from numeric to character (string) variables using as.character()<br>
++ Concatenate the three strings into a single string variable using paste0()<br>
+```{r message = F, tidy=TRUE, warning = FALSE, width=70, eval = FALSE}
+# length(unique(logbook$SERIAL_NUMBER2))
+
+## If the haul year was 1998 or later, the logbook page number (aka the logbook page serial number) is the identifier. Otherwise generate & add concactenated variable using paste0()
+logbook<-logbook5
+logbook$SERIAL_NUMBER2 = as.numeric(logbook$SERIAL_NUMBER2)
+logbook$UNIQUE_SET_ID = ifelse(logbook[,'HAUL_YEAR'] > 1997, logbook$SERIAL_NUMBER2, paste0(as.character(as.numeric(logbook[,'HAUL_YEAR'])), as.character(as.numeric(logbook[,'TRIP_NUMBER'])),as.character(as.numeric(logbook[,'SERIAL_NUMBER2']))))
+
+length(unique(logbook$UNIQUE_SET_ID)) ## should be substantial and greater than unique values of SERIALNUM2
+```
+## Summarize
+This is an involved yet necessary reshaping step to get the data in formats useful for CPUE analysis.
+```{r, warning = F, message = F , eval = FALSE}
+p = proc.time()
+## if you want to do a 'test run', I recommend sub-sampling the dataframe
+
+#logbook0 = logbook[sample(nrow(logbook), 0.05*nrow(logbook)), ]
+logbook0 = logbook
+#logbook0<-read.csv("C:/Users/michelle.sculley/Documents/MLS Stock Ass/HILL Data/HILL_logbook_083018.csv",header=TRUE)
+
+## take out operational-only columns (no catch info) and remove duplicates so you have a single row of set-level information for each UNIQUE_SET_ID
+operational <- subset(logbook0, !duplicated(logbook0[,'UNIQUE_SET_ID'])) 
+operational <- subset(logbook0[ -c(58:64) ], !duplicated(logbook0[ -c(58:64) ][,'UNIQUE_SET_ID']))
+## add in ENGLISH_NAME from code table
+logbook0.join = left_join(logbook0, spcodes, by = 'SPECIES_CODE')
+
+## change NAs in catch-related columns to 0
+logbook0.join[,58:65][is.na(logbook0.join[,58:65])] = 0
+proc.time() - p
+```
+# Aberrant Values
+I included this as a pre-aggregation step that you may choose to skip. This focuses mainly on outstanding catch values and is designed to avoid erroneous CPUE calculations. Unusual lat/long values can be inspected visually.
+```{r}
+with(logbook0.join, summary(NUMBER_OF_FISH_KEPT))
+subset(logbook0.join, NUMBER_OF_FISH_KEPT > 400)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+                                                         'SPECIES_CODE',
+                                                         'NUMBER_OF_FISH_KEPT')]
+## if you choose to drop all of the above, use the following. You can change it to a different threshold
+logbook0.join = subset(logbook0.join, NUMBER_OF_FISH_KEPT < 400)
+
+with(logbook0.join, summary(NUMBER_OF_SHARKS_FINNED))
+subset(logbook0.join, NUMBER_OF_SHARKS_FINNED > 300)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+                                                         'SPECIES_CODE',
+                                                         'NUMBER_OF_SHARKS_FINNED')]
+## if you choose to drop all of the above, use the following. You can change it to a different threshold
+ logbook0.join = subset(logbook0.join, NUMBER_OF_SHARKS_FINNED < 300)
+
+with(logbook0.join, summary(NUMBER_OF_FISH_RELEASED))
+subset(logbook0.join, NUMBER_OF_FISH_RELEASED > 300)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+                                                         'SPECIES_CODE',
+                                                         'NUMBER_OF_FISH_RELEASED')]
+## if you choose to drop all of the above, use the following. You can change it to a different threshold
+logbook0.join = subset(logbook0.join, NUMBER_OF_FISH_RELEASED < 300)
+
+with(logbook0.join, summary(NUMBER_RELEASED_ALIVE_UNINJURE))
+subset(logbook0.join, NUMBER_RELEASED_ALIVE_UNINJURE > 300)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+                                                         'SPECIES_CODE',
+                                                         'NUMBER_RELEASED_ALIVE_UNINJURE')]
+## if you choose to drop all of the above, use the following. You can change it to a different threshold
+logbook0.join = subset(logbook0.join, NUMBER_RELEASED_ALIVE_UNINJURE < 300)
+
+with(logbook0.join, summary(NUMBER_RELEASED_DEAD))
+subset(logbook0.join, NUMBER_RELEASED_DEAD > 300)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+                                                         'SPECIES_CODE',
+                                                         'NUMBER_RELEASED_DEAD')]
+## if you choose to drop all of the above, use the following. You can change it to a different threshold
+logbook0.join = subset(logbook0.join, NUMBER_RELEASED_DEAD < 300)
+
+with(logbook0.join, summary(NUMBER_RELEASED_INJURED))
+subset(logbook0.join, NUMBER_RELEASED_INJURED > 300)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+                                                         'SPECIES_CODE',
+                                                         'NUMBER_RELEASED_INJURED')]
+## if you choose to drop all of the above, use the following. You can change it to a different threshold
+logbook0.join = subset(logbook0.join, NUMBER_RELEASED_INJURED < 300)
+
+```
+This chain reshapes that data frame to produce a 'combination column' for each species (given by ENGLISH_NAME) and the appropriate category. This new dataframe is saved to catch_data_0
+```{r, warning = F, message = F, eval = FALSE}
+  library(data.table)
+# logbook0.join<- melt(logbook0.join[,c(58:60,62:64,104:105)],id.vars = c('UNIQUE_SET_ID','ENGLISH_NAME')) %>%
+#     dcast(ENGLISH_NAME + variable ~ UNIQUE_SET_ID, fun.aggregate = NULL, value.var='value')
+logbook0.join$ENGLISH_NAME<-as.character(logbook0.join$ENGLISH_NAME)
+catch_df_0 = logbook0.join[,c(58:60,62:64,104:105)] %>% 
+  gather(var, val, -(7:8)) %>% 
+  unite("ENGLISH_NAME", ENGLISH_NAME, var) %>% 
+  reshape(idvar = 'UNIQUE_SET_ID', timevar =  'ENGLISH_NAME', direction = 'wide')
+
+## drop 'val.' from the column names (that gets added automatically in the unite() function)
+names(catch_df_0)[-1] = substring(names(catch_df_0)[-1],5)
+
+## check that length of unique IDS conserved
+length(unique(logbook0$UNIQUE_SET_ID)) == length(unique(catch_df_0$UNIQUE_SET_ID))
+
+ # catch_df_0 = group_by(UNIQUE_SET_ID, ENGLISH_NAME) %>% 
+ # data.table::dcast( UNIQUE_SET_ID ~ ENGLISH_NAME + variable, fun.aggregate = NULL, value.var = 'value')
+# proc.time() - p
+```
+
+```{r, warning = F, message = F, eval = FALSE}
+## this step deletes columns where the sum of non-NA numbers is 0, e.g. 'NUMBER OF SHARKS FINNED' for a fish catch).
+ #sum(catch_df_0$OPAH_NUMBER_OF_SHARKS_FINNED, na.rm = T) != 0
+catch_df = catch_df_0[colSums(catch_df_0[-1], na.rm = T) == 0]
+catch_df = catch_df_0
+## add in the UID again
+catch_df$UNIQUE_SET_ID = catch_df_0$UNIQUE_SET_ID
+```
+Some sanity checks
+```{r, warning = F, message = F, eval = FALSE}
+## you can inspect how many columns were dropped
+ncol(catch_df_0) - ncol(catch_df)
+## check how many unique set IDs in each (this should be TRUE)
+length(unique(operational$UNIQUE_SET_ID)) == length(unique(catch_df$UNIQUE_SET_ID)) 
+## check that very USID in catch_df also appears in operational (should be TRUE)
+length(unique(catch_df$UNIQUE_SET_ID) %in% unique(operational$UNIQUE_SET_ID)) == length(unique(catch_df$UNIQUE_SET_ID)) 
+## check that formatting was conserved
+# unique(catch_df$UNIQUE_SET_ID)[1:10]
+```
+## Re-match Catch Data & Operational Info
+This creates the final dataframe (df) that you will use for data cleaning and analysis.
+```{r, warning = F, message = F, eval = FALSE}
+df =  merge(catch_df, operational, by = 'UNIQUE_SET_ID')
+dim(df)[1] == length(unique(logbook0$UNIQUE_SET_ID)) ## the final DF should have the same # of rows as UNIQUE_SET_ID
+```
+# Data Cleaning & QA/QC
+## Average Hooks per Float
+This is particularly important because hooks per float became the basis for two-sector management after 2001. 
+```{r}
+## If both HOOKS PER FLOAT values are NA, this will return an NA, otherwise calculates the mean.
+df$HOOKS_PER_FLOAT =  ifelse(is.na(df$MAXIMUM_HOOKS_PER_FLOAT) & is.na(df$MINIMUM_HOOKS_PER_FLOAT), NA,
+                             df$MAXIMUM_HOOKS_PER_FLOAT)
+summary(df$HOOKS_PER_FLOAT)                     
+```
+## Identify Longline Sets
+If a set was neither research (R) or experimental (X), assign it LL status. Note that the TYPE_SET column pre-assigns shallow (S) and deep (D) sets based on a 15-hook cutoff.
+```{r}
+# unique((df$RSCH_EXPMTL_CODE))
+df$RSCH_EXPMTL_CODE = ifelse(is.na(df$RSCH_EXPMTL_CODE),"LL",df$RSCH_EXPMTL_CODE) 
+```
+
+## Define Position & Region
+### Fix Coordinates
+I copied the protocol used by B Walsh, wherein the <B>Begin Set & End Haul</b> latitudes and longitudes were averaged to create a singular coordinate point for each set. NA values are replaced with Begin Haul coordinates.
+```{r}
+## calculate means
+df$LATITUDE = (df$BEGIN_SET_LATITUDE_DEGREES + df$END_HAUL_LATITUDE_DEGREES)/2
+df$LONGITUDE = (df$BEGIN_SET_LONGITUDE_DEGREES + df$END_HAUL_LONGITUDE_DEGREES)/2
+## replace NAs with Begin Haul coordinates
+df$LATITUDE = ifelse(is.na(df$LATITUDE),df$BEGIN_HAUL_LATITUDE_DEGREES, df$LATITUDE)
+df$LONGITUDE = ifelse(is.na(df$LONGITUDE),df$BEGIN_HAUL_LONGITUDE_DEGREES, df$LONGITUDE)
+## you can throw up a quick map too see if the coords make sense. Keep in mind that LONGITUDE is in Deg W so you must multiply by -1 to match a normal map.
+# with(df, plot(LONGITUDE*-1,LATITUDE, pch = 20))
+```
+
+### Designate Fishing Regions
+Discretized and made into a factor (Brodziak & Walsh 2013)
+```{r, warning = F, message = F}
+attach(df)
+df$REGION = ifelse(LATITUDE < 10 & LONGITUDE < 160, 1, NA)
+df$REGION = ifelse(LATITUDE < 10 & LONGITUDE >= 160, 2, df$REGION)
+df$REGION = ifelse(LATITUDE %in% 10:20 & LONGITUDE < 160, 3, df$REGION)
+df$REGION = ifelse(LATITUDE %in% 10:20 & LONGITUDE >= 160, 4, df$REGION)
+df$REGION = ifelse(LATITUDE %in% 20:30 & LONGITUDE < 160, 5, df$REGION)
+df$REGION = ifelse(LATITUDE %in% 20:30 & LONGITUDE >= 160, 6, df$REGION)
+df$REGION = ifelse(LATITUDE > 30 & LONGITUDE < 160, 7, df$REGION)
+df$REGION = ifelse(LATITUDE > 30 & LONGITUDE >160, 8, df$REGION)
+## plot same as above colored by region
+with(df, plot(LONGITUDE*-1,LATITUDE, pch = 20, col = factor(REGION)))
+legend('bottomright', legend = levels(factor(df$REGION)), pch = 20, col = levels(factor(df$REGION)))
+```
+
+
+## Optional: Summary data for a given spp
+```{r}
+## Sum fish kept and/or finned and/or released by set. You can choose your species using the sp.name or hard-code yourself. Make sure sp.name matches the way it appears in the data frame.
+sp.name = 'STRIPED_MARLIN'
+#df[,paste0(sp.name,'_NUMBER_OF_SHARKS_FINNED')]
+
+df$MLS_NIND = rowSums(cbind(
+  df[,paste0(sp.name,'_NUMBER_OF_SHARKS_FINNED')],
+  df[,paste0(sp.name,'_NUMBER_OF_FISH_KEPT')],
+  df[,paste0(sp.name,'_NUMBER_RELEASED_ALIVE_UNINJURE')],
+  df[,paste0(sp.name,'_NUMBER_RELEASED_INJURED')],
+  df[,paste0(sp.name,'_NUMBER_RELEASED_DEAD')], na.rm = T))
+
+#View( cbind(subset(logbook, SERIAL_NUMBER2 == 133617)[,c('SERIAL_NUMBER2','HAUL_YEAR',
+#                                                         'SPECIES_CODE',
+ #                                                        'NUMBER_OF_SHARKS_FINNED','NUMBER_OF_FISH_KEPT')]))
+## Divide NUMIND by HOOKS_PER_FLOAT
+df$MLS_CPUE = (df$MLS_NIND/df$NUMBER_OF_HOOKS_SET)*1000
+head(subset(df, MLS_CPUE > 0))$MLS_CPUE
+nrow(subset(df, MLS_CPUE != 0))
+hist(df$MLS_CPUE, xlim = c(0,400))
+
+df1<-subset(df,!is.na(LATITUDE)&!is.na(LONGITUDE)) 
+df1<-subset(df1,LONGITUDE>100)
+df1$UNIQUE_SET_ID<-as.double(df1$UNIQUE_SET_ID)
+df1$PERMIT_NUMBER<-as.integer(df1$PERMIT_NUMBER)
+
+df2<-subset(df,!is.na(LATITUDE)&!is.na(LONGITUDE)) 
+df2<-subset(df2,LONGITUDE>100)
+df2$RSCH_EXPMTL_CODE<-as.character(df2$RSCH_EXPMTL_CODE)
+
+df3<-subset(df,!is.na(LATITUDE)&!is.na(LONGITUDE)) 
+df3<-subset(df3,LONGITUDE>100)
+df3$RSCH_EXPMTL_CODE<-as.character(df3$RSCH_EXPMTL_CODE)
+df3$VERSION<-as.integer(df3$VERSION)
+
+df4<-subset(df,!is.na(LATITUDE)&!is.na(LONGITUDE)) 
+df4<-subset(df4,LONGITUDE>100)
+df4$RSCH_EXPMTL_CODE<-as.character(df4$RSCH_EXPMTL_CODE)
+df4$VERSION<-as.integer(df4$VERSION)
+df4$PERMIT_NUMBER<-as.integer(df4$PERMIT_NUMBER)
+
+df5<-subset(df,!is.na(LATITUDE)&!is.na(LONGITUDE)) 
+df5<-subset(df5,LONGITUDE>100)
+
+df_final<-dplyr::bind_rows(df1,df2)
+df_final<-dplyr::bind_rows(df_final,df3)
+df_final<-dplyr::bind_rows(df_final,df4)
+df_final<-dplyr::bind_rows(df_final,df5)
+df_final<-subset(df_final,!is.na(HOOKS_PER_FLOAT))
+df_final<-df_final[,-c(241:336)]
+df_final<-df_final[,-c(2:139)]
+
+write.csv(df_final,'G:\\MLS\\MLS_logbk_95_20.csv')
+ 
+```
+
