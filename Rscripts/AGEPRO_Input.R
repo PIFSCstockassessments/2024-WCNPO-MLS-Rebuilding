@@ -125,18 +125,19 @@ AGPRO_INP<-function(output.dir = "",
     "[BOOTSTRAP]",
     paste(c(Nsims, ScaleFactor[1]), collapse = "  "),
     boot_file,
-    "[STOCKWEIGHT]",
+    "[STOCK_WEIGHT]",
     paste(c(UserSpecified[1], TimeVary[1]), collapse = "  "))
   
   if (TimeVary[1] == 1) {
     "This function can't be used for time-varying WAA yet, please input manually in the AGEPRO gui."
   } else {
     if (UserSpecified[1] == 0) {
-      lines$Jan_WAA<-paste(Jan_WAA, Jan_WAACV, collapse = "  ")
+      lines$Jan_WAA1<-paste(Jan_WAA, collapse = "  ")
+      lines$Jan_WAA2<-paste(Jan_WAACV, collapse = "  ")
     }
   }
   lines$SSBWeight<-"[SSB_WEIGHT]"
-  lines$SSBWeight2<-paste(UserSpecified[2], TimeVary[2], collapse = "  ")
+  lines$SSBWeight2<-paste(c(UserSpecified[2], TimeVary[2]), collapse = "  ")
   
   if (TimeVary[2] == 1) {
     "This function can't be used for time-varying WAA yet, please input manually in the AGEPRO gui."
@@ -146,8 +147,8 @@ AGPRO_INP<-function(output.dir = "",
       lines$SSBWeight4<-paste( SSB_WAACV, collapse = "  ")
     }
   }
-  lines$MeanWeight<-"[MEANWEIGHT]"
-  lines$MeanWeight2<-paste(UserSpecified[3], TimeVary[3], collapse = "  ")
+  lines$MeanWeight<-"[MEAN_WEIGHT]"
+  lines$MeanWeight2<-paste(c(UserSpecified[3], TimeVary[3]), collapse = "  ")
   if (TimeVary[3] == 1) {
     "This function can't be used for time-varying WAA yet, please input manually in the AGEPRO gui."
   } else {
@@ -157,7 +158,7 @@ AGPRO_INP<-function(output.dir = "",
     }
   }
   lines$CatchWeight<-"[CATCH_WEIGHT]"
-  lines$CatchWeight2<-paste(UserSpecified[4], TimeVary[4], collapse = "  ")
+  lines$CatchWeight2<-paste(c(UserSpecified[4], TimeVary[4]), collapse = "  ")
   if (TimeVary[4] == 1) {
     "This function can't be used for time-varying WAA yet, please input manually in the AGEPRO gui."
   } else {
@@ -183,7 +184,7 @@ AGPRO_INP<-function(output.dir = "",
   
   lines$Mat<-"[MATURITY]"
   lines$Mat2<-paste(c(UserSpecified[6], TimeVary[6]), collapse = "  ")
-  linesMat3<-paste(unlist(MatAtAge), collapse = "  ")
+  lines$Mat3<-paste(unlist(MatAtAge), collapse = "  ")
   lines$Mat4<-paste(unlist(MatAtAgeCV), collapse = "  ")
   
   ##Fishery selectivity at age
@@ -195,51 +196,51 @@ AGPRO_INP<-function(output.dir = "",
   lines$recr<-"[RECRUIT]"
   lines$recr2<-paste(c(ScaleFactor[2:3], 500), collapse = "  ")
   lines$recr3<-paste(Recruitment$Recr_Model)
-  lines$recr4<-paste(Recruitment$Recr_Prob, sep="\n")
+  for (i in 1:NYears){ lines[[paste0("recr",i+3)]]<-paste(Recruitment$Recr_Prob[i])}
   
   
   if (Recruitment$Recr_Model %in% c(1, 9)) {
     "Recruitment model not supported."
   }
   if (Recruitment$Recr_Model %in% c(2, 3, 4, 15)) {
-    lines$recr5<-paste(Recruitment$Nobs)
-    lines$recr6<-paste(Recruitment$Recruits$SpawnBio, collapse = "  ")
-    lines$recr7<-paste(Recruitment$Recruits$SpawnBio, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$Nobs)
+    lines$Rmod2<-paste(Recruitment$Recruits$SpawnBio, collapse = "  ")
+    lines$Rmod3<-paste(Recruitment$Recruits$pred_recr, collapse = "  ")
   }
   if (Recruitment$Recr_Model %in% c(5, 6, 10, 11)) {
-    lines$recr5<-paste(Recruitment$alpha, Recruitment$beta, Recruitment$var, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$alpha, Recruitment$beta, Recruitment$var, collapse = "  ")
     if (Recruitment$Recr_Model %in% c(10, 11)) {
-      lines$recr6<-paste(Recruitment$Phi, Recruitment$LastResid, collapse = "  ")
+      lines$Rmod2<-paste(Recruitment$Phi, Recruitment$LastResid, collapse = "  ")
     }
   }
   if (Recruitment$Recr_Model %in% c(7, 12)) {
-    lines$recr5<-paste(Recruitment$alpha, Recruitment$beta, Recruitment$Kparm, Recruitment$var, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$alpha, Recruitment$beta, Recruitment$Kparm, Recruitment$var, collapse = "  ")
     if (Recruitment$Recr_Model == 12) {
-      lines$recr6<-paste(Recruitment$Phi, Recruitment$LastResid, collapse = "  ")
+      lines$Rmod2<-paste(Recruitment$Phi, Recruitment$LastResid, collapse = "  ")
     }
   }
   if (Recruitment$Recr_Model %in% c(8, 13)) {
-    lines$recr5<-paste(Recruitment$mean, Recruitment$stdev, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$mean, Recruitment$stdev, collapse = "  ")
     if (Recruitment$Recr_Model == 13) {
-      lines$recr6<-paste(Recruitment$Phi, Recruitment$LastResid, collapse = "  ")
+      lines$Rmod2<-paste(Recruitment$Phi, Recruitment$LastResid, collapse = "  ")
     }
   }
   if (Recruitment$Recr_Model == 14) {
-    lines$recr5<-Recruitment$Nobs
-    lines$recr6<-paste(Recruitment$Obs, collapse = "  ")
+    lines$Rmod1<-Recruitment$Nobs
+    lines$Rmod2<-paste(unlist(Recruitment$Obs), collapse = "  ")
   }
   if (Recruitment$Recr_Model %in% c(16, 17, 18, 19)) {
-    lines$recr5<-paste(Recruitment$Ncoeff, Recruitment$var, Recruitment$Intercept, collapse = "  ")
-    lines$recr6<-paste(Recruitment$Coeff, collapse = "  ")
-    lines$recr7<-paste(Recruitment$Observations, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$Ncoeff, Recruitment$var, Recruitment$Intercept, collapse = "  ")
+    lines$Rmod2<-paste(Recruitment$Coeff, collapse = "  ")
+    lines$Rmod3<-paste(Recruitment$Observations, collapse = "  ")
   }
   if (Recruitment$Recr_Model == 20) {
-    lines$recr5<-paste(Recruitment$Data, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$Data, collapse = "  ")
   }
   if (Recruitment$Recr_Model == 21) {
-    lines$recr5<-paste(Recruitment$Nobs)
-    lines$recr6<-paste(Recruitment$Obs, collapse = "  ")
-    lines$recr7<-paste(Recruitment$SSBHingeValue, collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$Nobs)
+    lines$Rmod2<-paste(Recruitment$Obs, collapse = "  ")
+    lines$Rmod3<-paste(Recruitment$SSBHingeValue, collapse = "  ")
   }
   
   
@@ -250,23 +251,23 @@ AGPRO_INP<-function(output.dir = "",
   
   if (doRebuild == TRUE) {
     lines$rebuild<-"[REBUILD]"
-    lines$rebuild2<-paste(RebuildTargetYear, RebuildTargetSSB, PercentConfidence, LandingType, collapse = "  ")
+    lines$rebuild2<-paste(c(RebuildTargetYear, RebuildTargetSSB, PercentConfidence, LandingType), collapse = "  ")
   }
   
   
   if (ThresholdReport == TRUE) {
     lines$thresh<-"[REFPOINT]"
-    lines$thresh2<-paste(RefPointSSB, RefPointJan1, RefPointMidYr, RefPointF, collapse = "  ")
+    lines$thresh2<-paste(c(RefPointSSB, RefPointJan1, RefPointMidYr, RefPointF), collapse = "  ")
   }
   
   
   if (SetBounds == TRUE) {
     lines$bounds<-"[BOUNDS]"
-    lines$bounds2<-paste(MaxWeight, MaxNatM, collapse = "  ")
+    lines$bounds2<-paste(c(MaxWeight, MaxNatM), collapse = "  ")
   }
   
   lines$options<-"[OPTIONS]"
-  lines$options2<-paste(SumReport, AuxFiles, RExport, collapse = "  ")
+  lines$options2<-paste(c(SumReport, AuxFiles, RExport), collapse = "  ")
   
   if (SetScale == TRUE) {
     lines$scale<-"[SCALE]"
@@ -280,7 +281,7 @@ AGPRO_INP<-function(output.dir = "",
   
   #return(lines)
   # Write the lines to a text file
-  write.table(do.call(paste,c(lines,sep="\n")), file = file.path(output.dir, paste0(ModelName, ".inp")), row.names = FALSE, col.names = FALSE, sep = " ", quote = FALSE, append=FALSE)
+  write.table(paste(lines,sep="\n"), file = file.path(output.dir, paste0(ModelName, ".inp")), row.names = FALSE, col.names = FALSE, sep = " ", quote = FALSE, append=FALSE)
   
 }
 

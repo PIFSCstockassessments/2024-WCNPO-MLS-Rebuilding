@@ -18,7 +18,7 @@ model.dir<-c("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\Final_Bas
 source(file.path(script.dir,"SS_to_Agepro.R"))
              
              
-SSInput<-SS_To_Agepro(model.dir=model.dir, script.dir="C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Rscripts", endyr=2020, TimeStep="Year")
+SSInput<-SS_To_Agepro(model.dir=model.dir, script.dir=script.dir, endyr=2020, TimeStep="Year")
              
             
 ### Recruitment input
@@ -106,6 +106,8 @@ Harvest<-list("Type"=c(rep(0,NYears)),"Harvest"=FleetRemovals)
 
 
 source(file.path(script.dir,"AGEPRO_Input.R"))
+
+
 ## Now write the input file:
 
 AGPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Test2",
