@@ -102,7 +102,7 @@ TotalCatch<-3000
 
 FleetRemovals<-t(sapply(SSInput$CatchbyFleet, function(p) rep(p*TotalCatch,NYears)))
 
-Harvest<-list("Type"=c(rep(0,NYears)),"Harvest"=FleetRemovals)
+Harvest<-list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
 
 
 source(file.path(script.dir,"AGEPRO_Input.R"))
@@ -117,7 +117,7 @@ AGPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS R
                     ProjStart = 2021,
                     NYears = 10,
                     MinAge = 1,
-                    Nsims = 10000,
+                    Nsims = 100,
                     NRecr_models = 1,
                     Discards = 0,
                     set.seed = 123,
@@ -138,7 +138,7 @@ AGPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS R
                     RefPointMidYr = 0,
                     RefPointF = 0.6,
                     SetBounds = TRUE,
-                    MaxWeight = 150,
+                    MaxWeight = 250,
                     MaxNatM = 1,
                     SumReport = 1,
                     AuxFiles = 0,

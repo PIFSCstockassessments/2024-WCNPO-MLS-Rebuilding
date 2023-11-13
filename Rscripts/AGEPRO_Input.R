@@ -112,7 +112,7 @@ AGPRO_INP<-function(output.dir = "",
   }
   
   
- GENERAL <- c(ProjStart, ProjStart + NYears, MinAge, MaxAge, Nsims, Nfleets, NRecr_models, Discards, set.seed)
+ GENERAL <- c(ProjStart, ProjStart + (NYears-1), MinAge, MaxAge, Nsims, Nfleets, NRecr_models, Discards, set.seed)
 
   
   # Create a list of strings to be pasted
@@ -194,7 +194,7 @@ AGPRO_INP<-function(output.dir = "",
   for (i in 1:Nfleets){ lines[[paste0("FishSel",i+3+Nfleets)]]<-paste(Fishery_SelAtAgeCV[i,], collapse="  ")}
   
   lines$recr<-"[RECRUIT]"
-  lines$recr2<-paste(c(ScaleFactor[2:3], 500), collapse = "  ")
+  lines$recr2<-paste(c(ScaleFactor[2:3], 50), collapse = "  ")
   lines$recr3<-paste(Recruitment$Recr_Model)
   for (i in 1:NYears){ lines[[paste0("recr",i+3)]]<-paste(Recruitment$Recr_Prob[i])}
   
