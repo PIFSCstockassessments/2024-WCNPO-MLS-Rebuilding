@@ -80,6 +80,7 @@ if(TimeStep=="Year"){
     filter(Yr == endyr, Seas == 1, SubSeas == 1) %>%
     select(6:ncol(.)) %>%
     unlist()
+  Out[["Jan_WAA"]] = base.model$parameters[[which(base.model$parameters$Label=="Wtlen_1_Fem_GP_1"),"Value"]]*(Out[["Jan_WAA"]]^base.model$parameters[[which(base.model$parameters$Label=="Wtlen_2_Fem_GP_1"),"Value"]])
   Out[["Jan_WAACV"]]<-rep(0.1,Out$MaxAge)
   
   ## SSB
@@ -90,7 +91,7 @@ if(TimeStep=="Year"){
     filter(Yr == endyr, Seas == 3, SubSeas == 1) %>%
     select(6:ncol(.)) %>%
     unlist()
-  
+  Out[["MidYr_WAA"]] = base.model$parameters[[which(base.model$parameters$Label=="Wtlen_1_Fem_GP_1"),"Value"]]*(Out[["MidYr_WAA"]]^base.model$parameters[[which(base.model$parameters$Label=="Wtlen_2_Fem_GP_1"),"Value"]])
   Out[["MidYr_WAACV"]]<-rep(0.1,Out$MaxAge)
   ## Catch at age - by fleet
   
