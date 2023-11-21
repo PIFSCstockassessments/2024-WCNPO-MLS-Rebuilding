@@ -58,7 +58,7 @@ if(TimeStep=="Year"){
   ## by year
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
-    filter(Factor == "Asel2", Yr == endyr, Seas == 1) %>%
+    filter(Factor == "Asel2", Yr == endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
     select(9:ncol(.))
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
@@ -96,7 +96,7 @@ if(TimeStep=="Year"){
   ## Catch at age - by fleet
   
   Out[["Catage"]] <- base.model$ageselex %>%
-    filter(Factor == "bodywt", Yr == endyr, Seas == 1, Fleet <= 25) %>%
+    filter(Factor == "bodywt", Yr == endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
     select(2, 9:ncol(.))
   Out[["CatageCV"]]<-as.data.frame(matrix(0.1,nrow=Out$Nfleets,ncol=(ncol(Out$Catage)-1)))
 
@@ -127,7 +127,7 @@ if(TimeStep=="Year"){
   ## Fishery Selectivity at age
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
-    filter(Factor == "Asel2", Yr == endyr)
+    filter(Factor == "Asel2", Yr == endyr, Fleet <=Out$NFleets)
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
   
@@ -164,7 +164,7 @@ if(TimeStep=="Year"){
   
   ## Catch  - by fleet
   Out[["Catage"]] <- base.model$ageselex %>%
-    filter(Factor == "bodywt", Yr == endyr, Fleet <= 25) %>%
+    filter(Factor == "bodywt", Yr == endyr, Fleet <= Out$Nfleets) %>%
     select(2, 4, 9:ncol(.)) %>%
     melt(id.vars = c("Seas", "Fleet")) %>%
     dcast(Fleet ~ variable + Seas)

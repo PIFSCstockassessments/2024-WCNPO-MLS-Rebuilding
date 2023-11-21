@@ -2,6 +2,7 @@
 library(r4ss)
 library(plyr)
 library(dplyr)
+library(purrr)
 
 ## variables needed:
 endyr = 2020
@@ -19,7 +20,37 @@ source(file.path(script.dir,"SS_to_Agepro.R"))
              
              
 SSInput<-SS_To_Agepro(model.dir=model.dir, script.dir=script.dir, endyr=2020, TimeStep="Year")
-             
+
+##dump SSInput into TempInput to preserve it
+TempInput<-SSInput
+## Adjust SSInput to the fleets you want to include: for this I am only choosing the fleets with unique selectivities, then for the fleets with the same selectivities, adding up the catch proportions for the new fleet:
+SSInput<-TempInput
+
+UniqueFleets<-which(!duplicated(SSInput$Fishery_SelAtAge))
+
+duplicated_rows=list()
+for (i in 1:length(UniqueFleets)){
+  target_row<-SSInput$Fishery_SelAtAge[UniqueFleets[i],1]
+  match_row<-SSInput$Fishery_SelAtAge[,1]
+  
+  duplicated_rows[[i]]<-which(match_row %in% target_row == TRUE)
+}
+
+SSInput$Fishery_SelAtAge<-SSInput$Fishery_SelAtAge[UniqueFleets,]
+SSInput$Nfleets<-nrow(SSInput$Fishery_SelAtAge)
+SSInput$Fishery_SelAtAgeCV<-SSInput$Fishery_SelAtAgeCV[UniqueFleets,]
+
+SSInput$Catage<-SSInput$Catage[UniqueFleets,]
+SSInput$CatageCV<-SSInput$CatageCV[UniqueFleets,]
+
+
+SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$CatchbyFleet)[.x]))
+
+
+  
+ 
+
+
             
 ### Recruitment input
 # You'll need to set a different Recruitment list for each recruitment model choice. They are detailed below:
@@ -110,7 +141,7 @@ source(file.path(script.dir,"AGEPRO_Input.R"))
 
 ## Now write the input file:
 
-AGPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Test2",
+AGEPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Test2",
                     boot_file = boot_file,
                     SS_Out = SSInput,
                     ModelName="Test2",

@@ -45,7 +45,7 @@
 #' @author Michelle Sculley
 
 
-AGPRO_INP<-function(output.dir = "",
+AGEPRO_INP<-function(output.dir = "",
                     boot_file = "",
                     SS_Out = SSInput,
                     ModelName="Test1",
