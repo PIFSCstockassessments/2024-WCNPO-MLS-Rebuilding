@@ -1,3 +1,4 @@
+## filename = SS_to_Agepro.R
 # Function to extract input data needed from the SS model to use in an agepro projection model
 # Required inputs are: 
 # model.dir is the directory where the completed SS model is found

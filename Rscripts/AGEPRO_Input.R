@@ -1,3 +1,4 @@
+## filename = AGEPRO_Input.R
 #' A function for creating an AGEPRO input file
 #'
 #' Uses output from SS to draft an input file, functionality is still limited
