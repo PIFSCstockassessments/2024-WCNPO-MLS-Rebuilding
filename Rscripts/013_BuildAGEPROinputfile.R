@@ -1,4 +1,5 @@
-### extracting inputs for AGEPRO input files
+## filename = 013_BuildAGEPROinputfile.R
+## extracting inputs for AGEPRO input files
 library(r4ss)
 library(plyr)
 library(dplyr)
