@@ -1,7 +1,7 @@
 #' A function for creating an AGEPRO input file
 #'
 #' Uses output from SS to draft an input file, functionality is still limited
-#' (i.e. no time-varying, not all recruitement models, etc.)
+#' (i.e. no time-varying, not all recruitment models, etc.)
 
 
 #' @param output.dir this is where you want the finished input file to be written
@@ -27,7 +27,7 @@
 #' @param PercentConfidence (optional) the percentile at which the rebuilding program meets its goal
 #' @param LandingType (optional) Rebuilding biomass target type (SSB = 0, Jan-1 = 1, or Mid-Year = 2)
 #' @param ThresholdReport TRUE or FALSE to create the Reference Point threshold report
-#' @param RefPointSSB (optional) Threshold report Sapwning stock biomass (in mt) reference point
+#' @param RefPointSSB (optional) Threshold report Spawning stock biomass (in mt) reference point
 #' @param RefPointJan1 (optional) Threshold report January-1 biomass (in mt) reference point
 #' @param RefPointMidYr (optional) Threshold report Mean Biomass (in mt) reference point
 #' @param RefPointF (optional) Threshold report F reference point

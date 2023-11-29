@@ -5,16 +5,20 @@ library(dplyr)
 library(purrr)
 
 ## variables needed:
-endyr = 2020
-TimePeriod<-"Year"
-NYears<-10
-script.dir="C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Rscripts"
-boot_file = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\2023_WCNPOMLS.bsn"
+endyr = 2020  ## last year of assessment
+TimePeriod<-"Year"  # can be "Year" or "Quarter" for quarters as years
+NYears<-10  ## number of years in projection
+
+## where are your Rscripts
+script.dir="C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Rscripts"  
+
+## where is your bootstrap file path
+boot_file = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\2023_WCNPOMLS.bsn"  
 
 
 
 ## use the modifies SS_output function to load all the report file lines needed
-model.dir<-c("C:\\Users\\Michelle.Sculley\\Documents\\2022 MLS ASSESS\\Final_BaseCase\\High R0")
+model.dir<-c("C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\base")
 
 source(file.path(script.dir,"SS_to_Agepro.R"))
              
@@ -44,12 +48,8 @@ SSInput$Catage<-SSInput$Catage[UniqueFleets,]
 SSInput$CatageCV<-SSInput$CatageCV[UniqueFleets,]
 
 
+## Summing the fleets' catch which share selectivities so that they can be used to proportion catch in projections
 SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$CatchbyFleet)[.x]))
-
-
-  
- 
-
 
             
 ### Recruitment input

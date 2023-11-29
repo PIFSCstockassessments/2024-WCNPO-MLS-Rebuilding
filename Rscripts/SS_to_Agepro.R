@@ -4,11 +4,29 @@
 # script.dir is the directory where the supporting .R files are found
 # endyr is the last year of the assessment model
 # TimeStep indicates is you are running AGEPRO with a yearly time step or as quarters as years. indicated "Year" or "Quarter"
-
-
-
-
-
+#' @param model.dir the location of the completed base-case model from which you are projecting
+#' @param script.dir the location of where your R scripts are currently held
+#' @param endyr the last year in the completed assessment
+#' @param TimeStep either "Year" to have an annual time step or "Quarter" to treat years as quarter (still in development)
+#' @returns Nfleets is the total number of catch fleets in the SS3 Report file
+#' @returns alpha is the alpha parameter of a beverton holt or richards stock assessment function
+#' @returns beta is the beta parameter of a beverton holt or richards stock assessment function
+#' @returns BH_Var is the sigmaR from the SS3 model, or the variance of the recruitment deviations
+#' @returns RecruitmentObs is a datatable containing the predicted recruitment, SSB, and recruitment deviation for each year or quarter
+#' @returns MaxAge is the Amax parameter from the SS3 model or maximum age, note for the Quarter time step this is maximum age in quarters (or MaxAge*4)
+#' @returns MatAtAge is a vector containing the probability of maturity at age by year or quarter
+#' @returns MatAtAgeCV is a vector of the CV for the probability of maturity at age, note this (and all CVs) are set to 0.1 as a default but can be adjusted after running the script 
+#' @returns Fishery_SelAtAge/Fishery_SelAtAgeCV are datatables of the selectivity by age and CV for each of the Nfleets
+#' @returns NatMort_atAge/NatMort_atAge is vectors of the natural mortality by age in years or quarters and their CV
+#' @returns Jan_WAA/Jan_WAACV is the weight-at-age of the stock on Jan-1
+#' @returns MidYr_WAA/MidYr_WAA is the weight-at-age of the stock on July-1
+#' @returns SSB_WAA/SSB_WAACV is currently under development
+#' @returns Catage/CatageCV is the weight-at-age caught by each Nfleet
+#' @returns CatchByFleet is the total catch by fleet in the last year/quarter of the model
+#' 
+#' Units: SSB and catch are in metric tons of biomass, recruitment is in 1000s of fish, catch/weight at ages are all in kilograms, alpha and beta parameters are converted from metric tons/1000s of fish to kilograms and numbers of fish by multiplying by 1000
+#'
+#'@author Michelle Sculley
 SS_To_Agepro<-function(model.dir = "base",
                        script.dir = "Rscripts",
                        endyr = 2020,
