@@ -21,7 +21,7 @@ script.dir="C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Rscript
 boot_file ="C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Bootstrap numbers at age\\2023_WCNPOMLS.bsn"
 
 ## Set base case model folder
-model.dir<-c("C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\base")
+model.dir<-c("C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\base-9-Dec-2022")
 
 ## Source SS_Agepro.R script
 source(file.path(script.dir,"SS_to_Agepro.R"))
@@ -95,15 +95,15 @@ SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$Catc
 ## Model 14
 
 # Recruitment is a list with two objects: Nobs is the number of observations and Obs is a vector of observed recruitment
-# Note 1: the filter below gathers n=21 recruitments when Nobs is set to 20 - the filter needs to be reevised
-# Note 2: the predicted recruitment values output from this script do not match the values in the 2023 base case Report.sso file
+# Note 1: the filter below gathers Nobs recruitments from endyr-Nobs+1:endyr
+# Note 2: the predicted recruitment values output from this script match the values in the 2023 base case Report.sso file
 
 Recruitment<-list()
 Recruitment$Recr_Model<-14
 Recruitment$Recr_Prob<-rep(1,NYears)
-Recruitment$Nobs<- 20 ## Assuming the number of observations is the last 20 years of recruitment
+Recruitment$Nobs<- 44 ## Assuming the number of observations is the last 44 years of recruitment
 Recruitment$Obs<-SSInput$RecruitmentObs %>%
-  filter(Yr %in% (endyr-Recruitment$Nobs):endyr) %>%
+  filter(Yr %in% (endyr-Recruitment$Nobs+1):endyr) %>%
   select(pred_recr)
 
 ## Model 16, 17, 18, and 19
@@ -131,7 +131,7 @@ source(file.path(script.dir,"AGEPRO_Input.R"))
 AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Build Input File",
                     boot_file = boot_file,
                     SS_Out = SSInput,
-                    ModelName="test_year",
+                    ModelName="test_model_14",
                     ProjStart = 2021,
                     NYears = 10,
                     MinAge = 1,
