@@ -1,4 +1,4 @@
-##  Script filename = Build Input File.R
+##  Script filename = Build Input File_test_model_14.R
 ## Purpose: Extract input data and build an AGEPRO input file
 ## Based on 013_BuildAGEPROinputfile.R by Michelle Sculley
 
@@ -110,8 +110,8 @@ SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$Catc
 ## Model 14
 
 # Recruitment for model 14 is a list with two objects: Nobs is the number of observations and Obs is a vector of observed recruitment
-# Note 1: The filter below selects Nobs recruitments from endyr-Nobs+1:endyr
-# Note 2: The predicted recruitment values output from this script match the values in the 2023 base case Report.sso file
+# Note 1: the filter below gathers Nobs recruitments from endyr-Nobs+1:endyr
+# Note 2: the predicted recruitment values output from this script match the values in the 2023 base case Report.sso file
 
 Recruitment <- list()
 Recruitment$Recr_Model <- RecruitType[1]
@@ -120,12 +120,6 @@ Recruitment$Nobs <- 44 ## Assuming the number of observations is the last 44 yea
 Recruitment$Obs <- SSInput$RecruitmentObs %>%
   filter(Yr %in% (endyr-Recruitment$Nobs+1):endyr) %>%
   select(pred_recr)
-  
-## Save age-0 recruitment (thousands of age-0 fish on July 1st in endyr) for checking input
-Recruitment_Age0_July_1st <- Recruitment$Obs
-
-## Calculate age-0.5 recruitment on January 1st for annual projections (thousands of age-0.5 fish on January 1st in endyr+1)
-Recruitment$Obs <- exp(-0.5*M0)*Recruitment$Obs
 
 ## Model 16, 17, 18, and 19
 # Recruitment is an object with 5 objects: Ncoeff is the number of coefficients, var is the variance, Intercept is the y-intercept, coeff is a vector containing the value of each coefficient, and Observations is a dataframe where each row the observations for each coefficient and each column is a year of the projection
@@ -152,7 +146,7 @@ source(file.path(script.dir,"AGEPRO_Input.R"))
 AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Build Input File",
                     boot_file = boot_file,
                     SS_Out = SSInput,
-                    ModelName="test_input",
+                    ModelName="test_model_14",
                     ProjStart = 2021,
                     NYears = 10,
                     MinAge = 1,
