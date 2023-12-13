@@ -12,6 +12,7 @@ seed = 123
 source("G:\\Bootstraps\\008_Run_Bootstraps.R")
 Run_Bootstraps(model_dir,N_boot,endyr,seed)
 
+### this is a slightly modified version of the r4ss function SSsplitdat
 SSsplitdat <-
   function(inpath     = 'working_directory',
            outpath    = 'working_directory',
@@ -77,13 +78,15 @@ SSsplitdat <-
     }
   }
 
+
+## this is a modified version of the r4ss SS_bootstrap function
 SS_bootstrap <- function(){
   # this is not yet a generalized function, just some example code for how to do
   # a parametric bootstrap such as was done for the Pacific hake model in 2006
   # See http://www.pcouncil.org/wp-content/uploads/2006_hake_assessment_FINAL_ENTIRE.pdf
   # A description is on page 41 and Figures 55-56 (pg 139-140) show some results.
   
-  # Written by Ian Taylor on 10/11/2012 after disucussion with Nancie Cummings
+  # Written by Ian Taylor on 10/11/2012 after discussion with Nancie Cummings
   
   # first set "Number of datafiles to produce" in starter.ss = 100 or some large number
   # re-run model to get data.ss_new file concatenating all bootstrap data files
@@ -196,5 +199,16 @@ for (i in 1:N){
     unlist() ## turn it into a vector to read it into the correct line in NatAge
   
 }
+## removing the NatAge for all but the integer ages
+
+# Create a sequence to identify columns to change to zero
+cols_to_change <- seq(from = 3, to = ncol(NatAge), by = 4)
+all_cols <- 1:ncol(NatAge)
+
+# Select columns that need to be changed to zero
+cols_to_zero <- all_cols[!all_cols %in% cols_to_change]
+
+# Set values to zero for columns not every 4th column
+NatAge[, cols_to_zero] <- 0
 
 write.table(NatAge,"2023_WCNPOMLS_Quarters.bsn", row.names=FALSE,col.names = FALSE)
