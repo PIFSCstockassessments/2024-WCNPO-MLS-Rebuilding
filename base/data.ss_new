@@ -5,7 +5,7 @@
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-#_Start_time: Thu Nov 30 09:30:21 2023
+#_Start_time: Fri Dec 09 11:50:30 2022
 #_Number_of_datafiles: 1
 
 #_observed data: 
@@ -5158,37 +5158,37 @@
 #_minsamplesize: minimum sample size; set to 1 to match 3.24, minimum value is 0.001
 #
 #_mintailcomp addtocomp combM+F CompressBins CompError ParmSelect minsamplesize
-# 0 0 1 1 0 0 0 #_fleet:1_F01_JPNLL_Q1A1_Late
-# 0 0 31 31 0 0 0 #_fleet:2_F02_JPNLL_Q1A2
-# 0 0 163712920 163713064 0 0 0 #_fleet:3_F03_JPNLL_Q1A3
+# 0 0 0 0 0 0 0 #_fleet:1_F01_JPNLL_Q1A1_Late
+# 0 0 0 0 0 0 0 #_fleet:2_F02_JPNLL_Q1A2
+# 0 0 0 0 0 0 0 #_fleet:3_F03_JPNLL_Q1A3
 # 0 0 0 0 0 0 0 #_fleet:4_F04_JPNLL_Q2A1
 # 0 0 0 0 0 0 0 #_fleet:5_F05_JPNLL_Q3A1_Late
 # 0 0 0 0 0 0 0 #_fleet:6_F06_JPNLL_Q4A1
-# 0 0 1 1 0 0 0 #_fleet:7_F07_JPNLL_Q1A4
-# 0 0 31 31 0 0 0 #_fleet:8_F08_JPNLL_Q2A2
-# 0 0 163712944 163713088 0 0 0 #_fleet:9_F09_JPNLL_Q3A2
+# 0 0 0 0 0 0 0 #_fleet:7_F07_JPNLL_Q1A4
+# 0 0 0 0 0 0 0 #_fleet:8_F08_JPNLL_Q2A2
+# 0 0 0 0 0 0 0 #_fleet:9_F09_JPNLL_Q3A2
 # 0 0 0 0 0 0 0 #_fleet:10_F10_JPNLL_Q4A2
 # 0 0 0 0 0 0 0 #_fleet:11_F11_JPNLL_Q4A3
 # 0 0 0 0 0 0 0 #_fleet:12_F12_JPNLL_Others
-# 0 0 1 1 0 0 0 #_fleet:13_F13_JPNDF_Q14_EarlyLate
-# 0 0 31 31 0 0 0 #_fleet:14_F14_JPNDF_Q23_EarlyLate
-# 0 0 163712968 163713112 0 0 0 #_fleet:15_F15_JPN_Others
+# 0 0 0 0 0 0 0 #_fleet:13_F13_JPNDF_Q14_EarlyLate
+# 0 0 0 0 0 0 0 #_fleet:14_F14_JPNDF_Q23_EarlyLate
+# 0 0 0 0 0 0 0 #_fleet:15_F15_JPN_Others
 # 0 0 0 0 0 0 0 #_fleet:16_F16_US_LL
 # 0 0 0 0 0 0 0 #_fleet:17_F17_US_Others
 # 0 0 0 0 0 0 0 #_fleet:18_F18_TWN_DWLL
-# 0 0 1 1 0 0 0 #_fleet:19_F19_TWN_STLL
-# 0 0 31 31 0 0 0 #_fleet:20_F20_TWN_Others
-# 0 0 163712992 163713136 0 0 0 #_fleet:21_F21_WCPFC_Others
+# 0 0 0 0 0 0 0 #_fleet:19_F19_TWN_STLL
+# 0 0 0 0 0 0 0 #_fleet:20_F20_TWN_Others
+# 0 0 0 0 0 0 0 #_fleet:21_F21_WCPFC_Others
 # 0 0 0 0 0 0 0 #_fleet:22_F22_JPNLL_Q1A1_Early
 # 0 0 0 0 0 0 0 #_fleet:23_F23_JPNLL_Q3A1_Early
 # 0 0 0 0 0 0 0 #_fleet:24_F24_JPNDF_Q14_Mid
-# 0 0 1 1 0 0 0 #_fleet:25_F25_JPNDF_Q23_Mid
-# 0 0 31 31 0 0 0 #_fleet:26_S01_JPNLL_Q1A1_Late
-# 0 0 163713016 163713160 0 0 0 #_fleet:27_S02_JPNLL_Q3A1_Late
+# 0 0 0 0 0 0 0 #_fleet:25_F25_JPNDF_Q23_Mid
+# 0 0 0 0 0 0 0 #_fleet:26_S01_JPNLL_Q1A1_Late
+# 0 0 0 0 0 0 0 #_fleet:27_S02_JPNLL_Q3A1_Late
 # 0 0 0 0 0 0 0 #_fleet:28_S03_US_LL
 # 0 0 0 0 0 0 0 #_fleet:29_S04_TWN_DWLL
 # 0 0 0 0 0 0 0 #_fleet:30_S05_JPNLL_Q1A1_Early
-# 0 0 1 1 0 0 0 #_fleet:31_S06_JPNLL_Q3A1_Early
+# 0 0 0 0 0 0 0 #_fleet:31_S06_JPNLL_Q3A1_Early
 # 0 #_Lbin_method_for_Age_Data: 1=poplenbins; 2=datalenbins; 3=lengths
 # sex codes:  0=combined; 1=use female only; 2=use male only; 3=use both as joint sexxlength distribution
 # partition codes:  (0=combined; 1=discard; 2=retained
