@@ -1,4 +1,4 @@
-## **Bootstrap numbers at age**
+## **Bootstrap-numbers-at-age**
 
 ### **Purpose** 
 This folder contains the data for initial bootstrapped population numbers
