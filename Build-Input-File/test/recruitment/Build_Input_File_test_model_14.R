@@ -50,12 +50,19 @@ for (i in 1:length(UniqueFleets)){
   duplicated_rows[[i]] <- which(match_row %in% target_row == TRUE)
 }
 
-## Set fishery selectivity at age for unique fleets
+## Set raw fishery selectivity at age for unique fleets
 SSInput$Fishery_SelAtAge <- SSInput$Fishery_SelAtAge[UniqueFleets,]
 
 ## Set number of fleets
 SSInput$Nfleets <- nrow(SSInput$Fishery_SelAtAge)
 
+## Normalize fishery selectivity at age for unique fleets
+for (f in 1:SSInput$Nfleets)
+{
+  max <- max(SSInput$Fishery_SelAtAge[f,])
+  SSInput$Fishery_SelAtAge[f,] <- SSInput$Fishery_SelAtAge[f,]/max
+}
+  
 ## Set CV of process error for fishery selectivity at age
 SSInput$Fishery_SelAtAgeCV <- SSInput$Fishery_SelAtAgeCV[UniqueFleets,]
 
