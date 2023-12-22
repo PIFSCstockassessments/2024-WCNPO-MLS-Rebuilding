@@ -2,7 +2,7 @@ AGEPRO VERSION 4.0
 [CASEID]
 test_model_14
 [GENERAL]
-2021  2030  1  15  100  9  1  0  123
+2021  2030  1  15  10  9  1  0  123
 [BOOTSTRAP]
 100  1000
 C:\Users\jon.brodziak\Desktop\2024 WCNPO MLS Rebuilding\Bootstrap-numbers-at-age\2023_WCNPOMLS.bsn
@@ -69,7 +69,7 @@ C:\Users\jon.brodziak\Desktop\2024 WCNPO MLS Rebuilding\Bootstrap-numbers-at-age
 0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1
 0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1  0.1
 [RECRUIT]
-1000  1000  50
+1000  1000  100
 14
 1
 1

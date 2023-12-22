@@ -1,4 +1,4 @@
-##  Script filename = Build Input File_test_model_14.R
+F##  Script filename = Build Input File_test_model_14.R
 ## Purpose: Extract input data and build an AGEPRO input file
 ## Based on 013_BuildAGEPROinputfile.R by Michelle Sculley
 
@@ -15,17 +15,24 @@ library(purrr)
 endyr <- 2020  ## Set last year of assessment
 TimePeriod <- "Year"  ## Set time step to be "Year" or "Quarter" for years as quarters
 NYears <- 10  ## Set number of years in projection
+NSims <- 10 ## Set number of simulations per bootstrap
 
 ## Set AGEPRO recruitment model variables
 NRecModel <- 1 ## Set number of recruitment models = 1
-RecruitType <- c(14) ## Set recruitment model vector with NRecModel elements
-M0 <- 0.54 ## Set age-0 natural mortality rate
+## Set recruitment model vector with NRecModel elements
+RecruitType <- c(14) ## The ordered vector RecruitType includes model 14
+RecFac <- 1000 ## RecFac is a multiplier to convert units of recruit model output (e.g., 1000 fish) to total numbers of fish
+SSBFac <- 1000 ## SSBFac is a divisor to convert kg of SSB to recruit model input units of SSB (e.g., 1000 mt)
+MaxRecObs <- 100 ## Maximum number of recruitment observations in a recruit model
+M0 <- 0.54 ## Set age-0 natural mortality rate to convert age-0.0 fish to age-0.5 fish
 
 ## Set Rscripts folder
 script.dir="C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Rscripts"
 
-## Set bootstrap file path
+## Set bootstrap file variables
 boot_file <- "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Bootstrap-numbers-at-age\\2023_WCNPOMLS.bsn"
+NBoot <- 100
+BootFac = 1000
 
 ## Set base case model folder
 model.dir <- c("C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\base")
@@ -75,10 +82,23 @@ SSInput$CatageCV<-SSInput$CatageCV[UniqueFleets,]
 ## Summing the fleets' catch which share selectivities so that they can be used to proportion catch in projections
 SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$CatchbyFleet)[.x]))
          
-### Recruitment input
-# You'll need to set a different Recruitment list for each recruitment model choice. They are detailed below:
-## SS_To_Agepro has pulled some of the Information from SS for different recruitment scenarios: these include the alpha, beta, and variance parameters for a stock recruitment curve (BH or Richards) and the observed recruitment by year and SSB 
+## Build Recruitment object as an input list
+## Each recruitment model from model 1 to 21 has a specific Recruitment object list. 
+## The structure of the Recruitment object list for each recruitment model is detailed below:
 
+## Set Recruitment object to be a list
+Recruitment <- list()
+
+## Set Recr_Model type (one of 1:21 choices)
+Recruitment$Recr_Model <- RecruitType[1]
+
+## Set single recruitment model probability by time period to be 1
+Recruitment$Recr_Prob <- rep(1,NYears)
+
+## RecFac, SSBFac, and MaxRecObs in Recruitment object
+Recruitment$RecFac <- RecFac
+Recruitment$SSBFac <- SSBFac
+Recruitment$MaxRecObs <- MaxRecObs
 
 ## Model 1 - this isn't set up yet
 
@@ -115,14 +135,10 @@ SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$Catc
 # Recruitment is a list with 2 (model 8) or 4 objects (model 13): the mean and standard deviation (stdev) of the lognormal distribution, and for model 13, Phi and LastResid which is the value of the last recruitment residual
 
 ## Model 14
-
 # Recruitment for model 14 is a list with two objects: Nobs is the number of observations and Obs is a vector of observed recruitment
 # Note 1: the filter below gathers Nobs recruitments from endyr-Nobs+1:endyr
 # Note 2: the predicted recruitment values output from this script match the values in the 2023 base case Report.sso file
 
-Recruitment <- list()
-Recruitment$Recr_Model <- RecruitType[1]
-Recruitment$Recr_Prob <- rep(1,NYears)
 Recruitment$Nobs <- 20 ## Assuming the number of observations is the last 20 years of recruitment
 Recruitment$Obs <- SSInput$RecruitmentObs %>%
   filter(Yr %in% (endyr-Recruitment$Nobs+1):endyr) %>%
@@ -158,16 +174,18 @@ source(file.path(script.dir,"AGEPRO_Input.R"))
 
 AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Build-Input-File",
                     boot_file = boot_file,
+					          NBoot = NBoot,
+					          BootFac = BootFac,
                     SS_Out = SSInput,
                     ModelName="test_model_14",
                     ProjStart = 2021,
                     NYears = 10,
                     MinAge = 1,
-                    Nsims = 100,
+                    NSims = NSims,
                     NRecr_models = NRecModel,
                     Discards = 0,
                     set.seed = 123,
-                    ScaleFactor = c(1000,1000,1000),  #population scaling factor, recruitment scaling factor, SSB scaling factor
+                    ScaleFactor = c(1000,1000,1000),  #scalebio, scalerec, scalestk
                     UserSpecified = c(0,-1,0,0,0,0,0),
                     TimeVary = c(0,0,0,0,0,0,0),
                     FemaleFrac = 0.5,
