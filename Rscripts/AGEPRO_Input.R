@@ -3,8 +3,6 @@
 #'
 #' Uses output from SS to draft an input file, functionality is still limited
 #' (i.e. no time-varying, not all recruitment models, etc.)
-
-
 #' @param output.dir this is where you want the finished input file to be written
 #' @param boot_file bootstrap file path location
 #' @param NBoot Number of bootstrap replicates of initial population numbers at age (# of rows in bootfile)
@@ -47,6 +45,7 @@
 #' 
 #' @return writes a text file (.inp) in the output.dir with the structure ModelName.inp
 #' @author Michelle Sculley
+## Updated by Jon Brodziak 12-21-2023
 
 
 AGEPRO_INP<-function(output.dir = "",
@@ -201,13 +200,17 @@ AGEPRO_INP<-function(output.dir = "",
   lines$recr3<-paste(Recruitment$Recr_Model)
   for (i in 1:NYears){ lines[[paste0("recr",i+3)]]<-paste(Recruitment$Recr_Prob[i])}
    
-  if (Recruitment$Recr_Model %in% c(1, 9)) {
+  if (Recruitment$Recr_Model %in% c(1, 4, 9, 15)) {
     "Recruitment model not supported."
   }
-  if (Recruitment$Recr_Model %in% c(2, 3, 4, 15)) {
+  if (Recruitment$Recr_Model %in% c(2)) {
     lines$Rmod1<-paste(Recruitment$Nobs)
     lines$Rmod2<-paste(Recruitment$Recruits$pred_recr, collapse = "  ")
     lines$Rmod3<-paste(Recruitment$Recruits$SpawnBio, collapse = "  ")
+  }
+  if (Recruitment$Recr_Model %in% c(3)) {
+    lines$Rmod1<-paste(Recruitment$Nobs)
+    lines$Rmod2<-paste(Recruitment$Recruits$pred_recr, collapse = "  ")
   }
   if (Recruitment$Recr_Model %in% c(5, 6, 10, 11)) {
     lines$Rmod1<-paste(Recruitment$alpha, Recruitment$beta, Recruitment$var, collapse = "  ")
