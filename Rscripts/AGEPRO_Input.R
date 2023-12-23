@@ -231,8 +231,8 @@ AGEPRO_INP<-function(output.dir = "",
     }
   }
   if (Recruitment$Recr_Model == 14) {
-    lines$Rmod1<-Recruitment$Nobs
-    lines$Rmod2<-paste(unlist(Recruitment$Obs), collapse = "  ")
+    lines$Rmod1<-paste(Recruitment$Nobs)
+    lines$Rmod2<-paste(Recruitment$Recruits$pred_recr, collapse = "  ")
   }
   if (Recruitment$Recr_Model %in% c(16, 17, 18, 19)) {
     lines$Rmod1<-paste(Recruitment$Ncoeff, Recruitment$var, Recruitment$Intercept, collapse = "  ")
