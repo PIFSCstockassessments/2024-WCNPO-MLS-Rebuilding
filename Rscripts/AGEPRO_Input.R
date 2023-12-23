@@ -44,8 +44,8 @@
 #' @param Percentile (optional) Report percentile
 #' 
 #' @return writes a text file (.inp) in the output.dir with the structure ModelName.inp
-#' @author Michelle Sculley
-## Updated by Jon Brodziak 12-21-2023
+#' @authors Michelle Sculley & Jon Brodziak
+## Updated by Jon Brodziak 12-2-2023
 
 
 AGEPRO_INP<-function(output.dir = "",
