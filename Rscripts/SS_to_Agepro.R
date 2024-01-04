@@ -77,8 +77,8 @@ if(TimeStep=="Year"){
   ## by year
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
-    filter(Factor == "Asel2", Yr == endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
-    select(9:ncol(.))
+    filter(Factor == "Asel2", Yr <= endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
+    select(C("Yr",9:ncol(.)))
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
   Out[["Fishery_SelAtAgeCV"]]<-matrix(0.1,nrow=Out$Nfleets,ncol=Out$MaxAge)
@@ -115,17 +115,17 @@ if(TimeStep=="Year"){
   ## Catch at age - by fleet
   
   Out[["Catage"]] <- base.model$ageselex %>%
-    filter(Factor == "bodywt", Yr == endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
+    filter(Factor == "bodywt", Yr <= endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
     select(2, 9:ncol(.))
   Out[["CatageCV"]]<-as.data.frame(matrix(0.1,nrow=Out$Nfleets,ncol=(ncol(Out$Catage)-1)))
 
   ## Last year's catch by fleet in biomass (to calculate the proportion of total catch)
   
   Out[["CatchbyFleet"]]<-base.model$timeseries %>%
-    filter(Yr==endyr) %>%
+    filter(Yr<=endyr) %>%
     select(starts_with("sel(B):_")) %>% 
     colSums() 
-  Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/sum(Out[["CatchbyFleet"]])
+ # Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/sum(Out[["CatchbyFleet"]])
     
     
   
@@ -146,7 +146,7 @@ if(TimeStep=="Year"){
   ## Fishery Selectivity at age
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
-    filter(Factor == "Asel2", Yr == endyr, Fleet <=Out$NFleets)
+    filter(Factor == "Asel2", Yr <= endyr, Fleet <=Out$NFleets)
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
   
@@ -183,16 +183,16 @@ if(TimeStep=="Year"){
   
   ## Catch  - by fleet
   Out[["Catage"]] <- base.model$ageselex %>%
-    filter(Factor == "bodywt", Yr == endyr, Fleet <= Out$Nfleets) %>%
+    filter(Factor == "bodywt", Yr <= endyr, Fleet <= Out$Nfleets) %>%
     select(2, 4, 9:ncol(.)) %>%
-    melt(id.vars = c("Seas", "Fleet")) %>%
-    dcast(Fleet ~ variable + Seas)
+    melt(id.vars = c("Yr","Seas", "Fleet")) %>%
+    dcast(Fleet ~ variable + Yr + Seas)
   Out[["CatageCV"]]<-as.data.frame(matrix(0.1,nrow=Out$Nfleets,ncol=(ncol(Out$Catage)-1)))
   
   Out[["CatchbyFleet"]]<-base.model$timeseries %>%
-    filter(Yr==endyr) %>%
+    filter(Yr<=endyr) %>%
     select(starts_with("sel(B):_"))
-  Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/rowSums(Out[["CatchbyFleet"]])
+ # Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/rowSums(Out[["CatchbyFleet"]])
   
 }
  return(Out)
