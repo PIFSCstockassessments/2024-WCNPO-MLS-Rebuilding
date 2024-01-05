@@ -168,10 +168,10 @@ SS_bootstrap <- function(){
 install.packages("devtools")
 devtools::install_github("r4ss/r4ss")
 library(r4ss)
-setwd("G:\Bootstraps")
+setwd("G:\\Bootstraps")
 boot_results<- bootmodels #SS_bootstrap()
 
-#bootmodels <- SSgetoutput(keyvec=paste("_",1:100,sep=""), dirvec=inpath, getcomp=FALSE)
+bootmodels <- SSgetoutput(keyvec=paste("_",1:100,sep=""), dirvec=getwd(), getcomp=FALSE)
 NatAge<-as.data.frame(matrix(NA,ncol=15))
 library(dplyr)
 ## for annual timestep
@@ -202,7 +202,7 @@ for (i in 1:N){
 ## removing the NatAge for all but the integer ages
 
 # Create a sequence to identify columns to change to zero
-cols_to_change <- seq(from = 3, to = ncol(NatAge), by = 4)
+cols_to_change <- seq(from = 4, to = ncol(NatAge), by = 4)
 all_cols <- 1:ncol(NatAge)
 
 # Select columns that need to be changed to zero
