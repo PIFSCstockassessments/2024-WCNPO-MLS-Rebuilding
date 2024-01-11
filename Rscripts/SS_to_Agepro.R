@@ -78,7 +78,7 @@ if(TimeStep=="Year"){
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
     filter(Factor == "Asel2", Yr <= endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
-    select(C("Yr",9:ncol(.)))
+    select("Yr","Fleet",9:ncol(.))
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
   Out[["Fishery_SelAtAgeCV"]]<-matrix(0.1,nrow=Out$Nfleets,ncol=Out$MaxAge)
@@ -116,15 +116,16 @@ if(TimeStep=="Year"){
   
   Out[["Catage"]] <- base.model$ageselex %>%
     filter(Factor == "bodywt", Yr <= endyr, Seas == 1, Fleet <= Out$Nfleets) %>%
-    select(2, 9:ncol(.))
+    select("Yr","Fleet", 9:ncol(.))
   Out[["CatageCV"]]<-as.data.frame(matrix(0.1,nrow=Out$Nfleets,ncol=(ncol(Out$Catage)-1)))
 
-  ## Last year's catch by fleet in biomass (to calculate the proportion of total catch)
+  ## Each year's catch by fleet in biomass (to calculate the proportion of total catch)
   
   Out[["CatchbyFleet"]]<-base.model$timeseries %>%
     filter(Yr<=endyr) %>%
-    select(starts_with("sel(B):_")) %>% 
-    colSums() 
+    select("Yr",starts_with("sel(B):_")) %>% 
+    group_by(Yr) %>%
+    summarize_all(sum)
  # Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/sum(Out[["CatchbyFleet"]])
     
     
@@ -146,7 +147,8 @@ if(TimeStep=="Year"){
   ## Fishery Selectivity at age
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
-    filter(Factor == "Asel2", Yr <= endyr, Fleet <=Out$NFleets)
+    filter(Factor == "Asel2", Yr <= endyr, Fleet <=Out$Nfleets) %>%
+    select("Yr","Fleet",9:ncol(.))
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
   
