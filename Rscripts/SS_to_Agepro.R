@@ -38,6 +38,13 @@ source(file.path(script.dir,"SS_outputforAGEPRO.R"))
 
 
 base.model<-SS_outputForAGEPRO(model.dir, script.dir=script.dir,verbose=FALSE, printstats=FALSE)
+
+## base.model$fatage - gives F at age by fleet, year, and quarter
+## sum across ages for F by fleet, year, and quarter, 
+## sum across ages and quarters for F by fleet and year
+
+
+
 #indicate if you are doing yearly or years as quarters
 Out<-list()
 
@@ -127,6 +134,12 @@ if(TimeStep=="Year"){
     group_by(Yr) %>%
     summarize_all(sum)
  # Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/sum(Out[["CatchbyFleet"]])
+  
+Out[["FbyFleet"]]<-base.model$timeseries %>%
+  filter(Yr<=endyr) %>%  ## include all years through the last year of the assessment (removed projection years if necessary)
+  select("Yr",starts_with("F:_")) %>% ## select the Fishing mortality columns for each fleet
+  group_by(Yr) %>%  ## sum the quarters for each F
+  summarize_all(sum)
     
     
   
@@ -194,6 +207,11 @@ if(TimeStep=="Year"){
   Out[["CatchbyFleet"]]<-base.model$timeseries %>%
     filter(Yr<=endyr) %>%
     select(starts_with("sel(B):_"))
+  
+  
+  Out[["FbyFleet"]]<-base.model$timeseries %>%
+    filter(Yr<=endyr) %>%
+    select(starts_with("F:_"))
  # Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/rowSums(Out[["CatchbyFleet"]])
   
 }

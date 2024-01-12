@@ -29,35 +29,92 @@ SSInput<-SS_To_Agepro(model.dir=model.dir, script.dir=script.dir, endyr=2020, Ti
 ##dump SSInput into TempInput to preserve it
 TempInput<-SSInput
 ## Adjust SSInput to the fleets you want to include: for this I am only choosing the fleets with unique selectivities, then for the fleets with the same selectivities, adding up the catch proportions for the new fleet:
-#SSInput<-TempInput #If you need to revert to the original SSInput without rerunning the function
+SSInput<-TempInput #If you need to revert to the original SSInput without rerunning the function
 
 UniqueFleets<- SSInput$Fishery_SelAtAge %>%
 filter(Yr == 2020) %>%
 distinct(across(-c(Yr, Fleet)), .keep_all = TRUE) %>%
   select(Fleet) %>% pull()
 
-duplicated_rows=list()
-for (i in 1:length(UniqueFleets)){
-  target_row<-SSInput$Fishery_SelAtAge[UniqueFleets[i],1]
-  match_row<-SSInput$Fishery_SelAtAge[,1]
-  
-  duplicated_rows[[i]]<-which(match_row %in% target_row == TRUE)
-}
+Years <- seq(min(SSInput$Fishery_SelAtAge$Yr),max(SSInput$Fishery_SelAtAge$Yr))
+
+
+matching_indices<-list()
+ for(j in 1:length(Years)) {
+  matching_indices[[j]]<-list()
+  for (i in 1:length(UniqueFleets)){
+# Select the target row (row 1 in this case)
+target_row <- SSInput$Fishery_SelAtAge[which(SSInput$Fishery_SelAtAge$Fleet==UniqueFleets[i]&SSInput$Fishery_SelAtAge$Yr==Years[j]), -2]
+
+# Find rows that match the target row
+matching_indices[[j]][[i]] <- which(apply(SSInput$Fishery_SelAtAge[,-2], 1, function(x) all(x %in% target_row)))
+}}
+# Display the indices of matching rows
+#print(matching_indices)
+
+
+
+YearAvg <- seq(endyr-2,endyr)  ## define which years you want to average you selectivity and catch at age over
 
 SSInput$Fishery_SelAtAge<-SSInput$Fishery_SelAtAge %>%
-  filter(Fleet %in% UniqueFleets)
+  filter(Fleet %in% UniqueFleets) %>%   ##filter out only the unique fleets
+  filter(Yr %in% YearAvg)  %>% ##save the year/years you want to average the Fishery selectivity over
+  group_by(Fleet) %>%  ## average each age by fleet
+  summarize(across(c(2:16),mean))
+
+
 SSInput$Nfleets<-length(UniqueFleets)
+
 SSInput$Fishery_SelAtAgeCV<-SSInput$Fishery_SelAtAgeCV[UniqueFleets,]
 
+
+
 SSInput$Catage<-SSInput$Catage %>% 
-  filter(Fleet %in% UniqueFleets)
+  filter(Fleet %in% UniqueFleets) %>%   ##filter out only the unique fleets
+  filter(Yr %in% YearAvg) %>%  ##save the year/years you want to average the catch at age over
+  group_by(Fleet) %>%  ## average each age by fleet
+  summarize(across(c(2:16),mean))
+
 SSInput$CatageCV<-SSInput$CatageCV[UniqueFleets,]
 
+duplicated_rows<-matching_indices[[1]]
+## Summing the fleets' catch and Fs which share selectivities so that they can be used to proportion catch in projections
+for (group in duplicated_rows){
 
-## Summing the fleets' catch which share selectivities so that they can be used to proportion catch in projections
-#SSInput$CatchbyFleet<-purrr::map_dbl(duplicated_rows,~sum(as.vector(SSInput$CatchbyFleet)[.x]))
+  col_names<-paste0("sel(B):_",group)
+  SSInput$CatchbyFleet[,paste0("sum_",paste(group,collapse="_"))]<-rowSums(SSInput$CatchbyFleet[,col_names,drop=FALSE],na.rm=TRUE)
+  col_names2<-paste0("F:_",group)
+  SSInput$FbyFleet[,paste0("sum_",paste(group,collapse="_"))]<-rowSums(SSInput$FbyFleet[,col_names2,drop=FALSE],na.rm=TRUE)
+}
+ CatchbyFleet<-SSInput$CatchbyFleet %>%
+    select(-starts_with("sel(B):_"))
+names(CatchbyFleet)<-c("Yr",UniqueFleets) 
+ ProportionCatch<-CatchbyFleet
+ for( i in 1:length(Years)) {
+   
+   TempCatch<-CatchbyFleet[i,-1]
+   ProportionCatch[i,c(2:ncol(ProportionCatch))]<-TempCatch/sum(TempCatch) 
+ }
+ 
+ FbyFleet<-SSInput$FbyFleet %>%
+   select(-starts_with("F:_"))
+ names(FbyFleet)<-c("Yr",UniqueFleets) 
 
-            
+ ##From here you can average catch, average F, or average proportion of catch over the years you are interested in
+ ## sticking with the three year average used above:
+ 
+CatchbyFleet<- CatchbyFleet %>%
+   filter(Yr %in% YearAvg) %>%
+   summarize(across(c(2:ncol(CatchbyFleet)),\(x) mean(x,na.rm=TRUE)))
+ 
+ProportionCatch<- ProportionCatch %>%
+  filter(Yr %in% YearAvg) %>%
+  summarize(across(c(2:ncol(ProportionCatch)),\(x) mean(x,na.rm=TRUE)))
+
+FbyFleet<- FbyFleet %>%
+  filter(Yr %in% YearAvg) %>%
+  summarize(across(c(2:ncol(FbyFleet)),\(x) mean(x,na.rm=TRUE)))
+
 ### Recruitment input
 # You'll need to set a different Recruitment list for each recruitment model choice. They are detailed below:
 ## SS_To_Agepro has pulled some of the Information from SS for different recruitment scenarios: these include the alpha, beta, and variance parameters for a stock recruitment curve (BH or Richards) and the observed recruitment by year and SSB 
@@ -137,7 +194,7 @@ Recruitment$Obs<-SSInput$RecruitmentObs %>%
 ## Here is an example assuming constant catch over the number of years of the model where catch is partitianed based upon the relative catch by fleet in the last year of the assessment, this is calculated in SSInput$CatchbyFleet
 TotalCatch<-3000
 
-FleetRemovals<-t(sapply(SSInput$CatchbyFleet, function(p) rep(p*TotalCatch,NYears)))
+FleetRemovals<-t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
 Harvest<-list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
 
