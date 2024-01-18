@@ -42,7 +42,7 @@ base.model<-SS_outputForAGEPRO(model.dir, script.dir=script.dir,verbose=FALSE, p
 ## base.model$fatage - gives F at age by fleet, year, and quarter
 ## sum across ages for F by fleet, year, and quarter, 
 ## sum across ages and quarters for F by fleet and year
-
+## base.model$timeseries has F by fleet, year, and quarter
 
 
 #indicate if you are doing yearly or years as quarters
@@ -158,10 +158,12 @@ Out[["FbyFleet"]]<-base.model$timeseries %>%
   
   
   ## Fishery Selectivity at age
+  ## fishery selectivity at age is constant across season, but some fleets have time varying selectivity. 
+  ## Is the selectivity for age 1.25 fish different than for age 1 fish?
   
   Out[["Fishery_SelAtAge"]] <- base.model$ageselex %>%
     filter(Factor == "Asel2", Yr <= endyr, Fleet <=Out$Nfleets) %>%
-    select("Yr","Fleet",9:ncol(.))
+    select("Yr","Fleet","Seas",9:ncol(.))
   
   ##Fishery_seleatage coefficient of variation, set to a standard 0.1
   
@@ -199,21 +201,26 @@ Out[["FbyFleet"]]<-base.model$timeseries %>%
   ## Catch  - by fleet
   Out[["Catage"]] <- base.model$ageselex %>%
     filter(Factor == "bodywt", Yr <= endyr, Fleet <= Out$Nfleets) %>%
-    select(2, 4, 9:ncol(.)) %>%
-    melt(id.vars = c("Yr","Seas", "Fleet")) %>%
-    dcast(Fleet ~ variable + Yr + Seas)
+    select("Fleet","Yr","Seas", 9:ncol(.)) %>%
+    reshape2::melt(id.vars = c("Yr","Seas", "Fleet")) %>%
+    reshape2::dcast(Fleet + Yr ~ variable + Seas )
   Out[["CatageCV"]]<-as.data.frame(matrix(0.1,nrow=Out$Nfleets,ncol=(ncol(Out$Catage)-1)))
   
   Out[["CatchbyFleet"]]<-base.model$timeseries %>%
     filter(Yr<=endyr) %>%
-    select(starts_with("sel(B):_"))
+    select("Yr","Seas",starts_with("sel(B):_")) %>%
+    reshape2::melt(id.vars = c("Yr","Seas")) %>%
+    reshape2::dcast(Yr ~ variable + Seas )
   
   
   Out[["FbyFleet"]]<-base.model$timeseries %>%
     filter(Yr<=endyr) %>%
-    select(starts_with("F:_"))
- # Out[["CatchbyFleet"]]<-Out[["CatchbyFleet"]]/rowSums(Out[["CatchbyFleet"]])
+    select(starts_with("F:_")) %>%
+    reshape2::melt(id.vars = c("Yr","Seas")) %>%
+    reshape2::dcast(Yr ~ variable + Seas )
   
+  
+
 }
  return(Out)
 }

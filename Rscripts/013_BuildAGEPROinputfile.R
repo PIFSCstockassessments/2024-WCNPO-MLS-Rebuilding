@@ -29,7 +29,7 @@ SSInput<-SS_To_Agepro(model.dir=model.dir, script.dir=script.dir, endyr=2020, Ti
 ##dump SSInput into TempInput to preserve it
 TempInput<-SSInput
 ## Adjust SSInput to the fleets you want to include: for this I am only choosing the fleets with unique selectivities, then for the fleets with the same selectivities, adding up the catch proportions for the new fleet:
-SSInput<-TempInput #If you need to revert to the original SSInput without rerunning the function
+#SSInput<-TempInput #If you need to revert to the original SSInput without rerunning the function
 
 UniqueFleets<- SSInput$Fishery_SelAtAge %>%
 filter(Yr == 2020) %>%
@@ -211,7 +211,7 @@ AGEPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS 
                     ProjStart = 2021,
                     NYears = 10,
                     MinAge = 1,
-                    Nsims = 100,
+                    #Nsims = 100,
                     NRecr_models = 1,
                     Discards = 0,
                     set.seed = 123,
