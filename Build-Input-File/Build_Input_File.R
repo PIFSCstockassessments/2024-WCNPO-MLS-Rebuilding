@@ -53,6 +53,11 @@ UniqueFleets<- SSInput$Fishery_SelAtAge %>%
   distinct(across(-c(Yr, Fleet)), .keep_all = TRUE) %>%
   select(Fleet) %>% pull()
 
+
+##identify years in the model
+Years <- seq(min(SSInput$Fishery_SelAtAge$Yr),max(SSInput$Fishery_SelAtAge$Yr))
+
+
 ## Identify set of unique fleets by year
 matching_indices<-list()
 for(j in 1:length(Years)) {
