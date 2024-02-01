@@ -230,7 +230,7 @@ Recruitment$Recruits <- exp(-0.5*M0)*Recruitment$Recruits
 ## Here is an example assuming constant catch over the number of years of the model where catch is partitianed based upon the relative catch by fleet in the last year of the assessment, this is calculated in SSInput$CatchbyFleet
 TotalCatch <- 2000
 
-FleetRemovals <- t(sapply(SSInput$CatchbyFleet, function(p) rep(p*TotalCatch,NYears)))
+FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
 Harvest <- list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
 

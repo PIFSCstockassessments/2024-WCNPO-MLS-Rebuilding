@@ -149,6 +149,9 @@ Recruitment$Recruits<-SSInput$RecruitmentObs %>%
 
 #Recruitment is a list with 3 to 5 objects: alpha and beta which are the S/R parameters, Kparm (only for models 7 and 12) is the K parameter, var is the recruitment variance, and for 10, 11 and 12, Phi is the Phi parameter, and LastResid is the last recruitment residual for the auto-correlated error
 Recruitment<-list()
+Recruitment$RecFac <- 1000 
+Recruitment$SSBFac <-1000 
+Recruitment$MaxRecObs <-100
 Recruitment$Recr_Model<-5
 Recruitment$Recr_Prob<-rep(1,NYears)
 Recruitment$alpha <-SSInput$alpha
@@ -204,10 +207,10 @@ source(file.path(script.dir,"AGEPRO_Input.R"))
 
 ## Now write the input file:
 
-AGEPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Test2",
+AGEPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS Rebuilding\\Test4",
                     boot_file = boot_file,
                     SS_Out = SSInput,
-                    ModelName="Test2",
+                    ModelName="Test4",
                     ProjStart = 2021,
                     NYears = 10,
                     MinAge = 1,
@@ -216,7 +219,7 @@ AGEPRO_INP(output.dir = "C:\\Users\\Michelle.Sculley\\Documents\\2024 WCNPO MLS 
                     Discards = 0,
                     set.seed = 123,
                     ScaleFactor = c(1000,1000,1000),  #population scaling factor, recruitment scaling factor, SSB scaling factor
-                    UserSpecified = c(0,-1,0,0,0,0,0),
+                    UserSpecified = c(0,0,0,0,0,0,0),
                     TimeVary = c(0,0,0,0,0,0,0),
                     FemaleFrac=0.5,
                     Recruitment=Recruitment,

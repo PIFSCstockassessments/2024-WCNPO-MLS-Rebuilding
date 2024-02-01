@@ -76,7 +76,10 @@ if(TimeStep=="Year"){
   ## Pmature(L) = 1 / (1 + exp(beta*(L-L50)))
   
   
-  Out[["MatAtAge"]]<-1 / (1+ exp(base.model$parameters[which(base.model$parameters$Label=="Mat_slope_Fem_GP_1"),"Value"]*(base.model$growthseries[1,6:ncol(base.model$growthseries)]-base.model$parameters[which(base.model$parameters$Label=="Mat50%_Fem_GP_1"),"Value"])))
+  Out[["MatAtAge"]]<-1 / (1+ exp(base.model$parameters[which(base.model$parameters$Label=="Mat_slope_Fem_GP_1"),"Value"]*
+                                   (base.model$growthseries[which(base.model$growthseries$Yr==endyr&base.model$growthseries$Seas==3&
+                                                            base.model$growthseries$SubSeas==1),6:ncol(base.model$growthseries)]
+                                    -base.model$parameters[which(base.model$parameters$Label=="Mat50%_Fem_GP_1"),"Value"])))
   Out[["MatAtAgeCV"]]<-rep(0.01,Out$MaxAge)
   
   ## Fishery Selectivity at age
@@ -110,6 +113,13 @@ if(TimeStep=="Year"){
   Out[["Jan_WAACV"]]<-rep(0.1,Out$MaxAge)
   
   ## SSB
+  
+  Out[["SSB_WAA"]] <- base.model$growthseries %>%
+    filter(Yr == endyr, Seas == 3, SubSeas == 1) %>%
+    select(6:ncol(.)) %>%
+    unlist()
+  Out[["SSB_WAA"]] = base.model$parameters[[which(base.model$parameters$Label=="Wtlen_1_Fem_GP_1"),"Value"]]*(Out[["SSB_WAA"]]^base.model$parameters[[which(base.model$parameters$Label=="Wtlen_2_Fem_GP_1"),"Value"]])
+  Out[["SSB_WAACV"]]<-rep(0.1,Out$MaxAge)
   
   ## mid-year
   

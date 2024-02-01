@@ -93,6 +93,8 @@ AGEPRO_INP<-function(output.dir = "",
 
   Jan_WAA <- SS_Out$Jan_WAA
   Jan_WAACV <- SS_Out$Jan_WAACV
+  SSB_WAA <-SS_Out$SSB_WAA
+  SSB_WAACV <-SS_Out$SSB_WAACV
   MidYr_WAA <- SS_Out$MidYr_WAA
   MidYr_WAACV <- SS_Out$MidYr_WAACV
   Catch_WAA <- SS_Out$Catage
@@ -192,7 +194,7 @@ AGEPRO_INP<-function(output.dir = "",
   ##Fishery selectivity at age
   lines$FishSel<-"[FISHERY]"
   lines$FishSel2<-paste(c(UserSpecified[7], TimeVary[7]), collapse = "  ")
-  for(i in 1:Nfleets) {lines[[paste0("FishSel",i+2)]]<-paste(Fishery_SelAtAge[i,], collapse="  ")}
+  for(i in 1:Nfleets) {lines[[paste0("FishSel",i+2)]]<-paste(Fishery_SelAtAge[i,-1], collapse="  ")}
   for (i in 1:Nfleets){ lines[[paste0("FishSel",i+3+Nfleets)]]<-paste(Fishery_SelAtAgeCV[i,], collapse="  ")}
   
   lines$recr<-"[RECRUIT]"
