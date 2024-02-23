@@ -14,8 +14,8 @@ for the Striped Marlin stock in the Western and Central North Pacific Ocean in 2
 
 ### **Contributions**
 > * Please identify file name on first line of contributed file
-* Please document R scripts and other contributed files where possible
-* Please edit readme.md file to describe folder contents where possible
+> * Please document R scripts and other contributed files where possible
+> * Please edit readme.md file to describe folder contents where possible
 
 ### **Contacts**
 > Points of contact: Jon Brodziak, Michelle Sculley  
