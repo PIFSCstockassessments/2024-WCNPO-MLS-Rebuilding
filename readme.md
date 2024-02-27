@@ -6,17 +6,17 @@ for the Striped Marlin stock in the Western and Central North Pacific Ocean in 2
 
 ### **Folder Structure** 
 > * SS3 base case assessment files are in /base
-* AGEPRO executable is in /bin
-* AGEPRO bootstrap numbers-at-age files are in /Bootstrap-numbers-at-age
-* Build scripts for AGEPRO input files are in /Build-Input-File
-* Data are in /Data
-* References are in /References
-* Rscripts are in /Rscripts
+> * AGEPRO executable is in /bin
+> * AGEPRO bootstrap numbers-at-age files are in /Bootstrap-numbers-at-age
+> * Build scripts for AGEPRO input files are in /Build-Input-File
+> * Data are in /Data
+> * References are in /References
+> * Rscripts are in /Rscripts
 
 ### **Contributions**
 > * Please identify file name on first line of contributed file
-* Document R scripts and other contributed files where possible
-* Edit readme.md file to describe folder contents where possible
+> * Document R scripts and other contributed files where possible
+> * Edit readme.md file to describe folder contents where possible
 
 ### **Contacts**
 > Points of contact: Jon Brodziak, Michelle Sculley  
