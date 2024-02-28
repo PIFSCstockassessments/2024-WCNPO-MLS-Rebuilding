@@ -1,62 +1,85 @@
-F##  Script filename = Build Input File.R
+## R Script filename = Build_Input_File.R
 ## Purpose: Extract input data and build an AGEPRO input file
 ## Based on 013_BuildAGEPROinputfile.R by Michelle Sculley
+## 28-Feb-2024
 
-## Set libraries
+## Clear RStudio environment if needed
+## rm(list=ls())
+
+##### SET LIBRARIES #####
 library(r4ss)
 library(plyr)
 library(dplyr)
 library(purrr)
 
-## Clear environment if needed
-## rm(list=ls())
-
-## Set model domain variables
-endyr <- 2020  ## Set last year of assessment
-TimePeriod <- "Year"  ## Set time step to be "Year" or "Quarter" for years as quarters
-NYears <- 10  ## Set number of years in projection
-NSims <- 10 ## Set number of simulations per bootstrap
-
-## Set AGEPRO recruitment model variables
-NRecModel <- 1 ## Set number of recruitment models = 1
-## Set recruitment model vector with NRecModel elements
-RecruitType <- c(14) ## The ordered vector RecruitType is model 14
-RecFac <- 1000 ## RecFac is a multiplier to convert units of recruit model output (e.g., 1000 fish) to AGEPRO numbers of fish
-SSBFac <- 1000 ## SSBFac is a divisor to convert kg of SSB in AGEPRO to recruit model input units of SSB (e.g., 1000 mt)
-## Note: Set SSBFac <- 1 for empirical recruits per spawner models 2 and 4
-MaxRecObs <- 100 ## Maximum number of recruitment observations in a recruit model
-M0 <- 0.54 ## Set age-0 natural mortality rate to convert age-0.0 fish to age-0.5 fish
-
-## Set Rscripts folder
+##### SET Rscripts FOLDER #####
 script.dir="C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Rscripts"
 
-## Set bootstrap file variables
-boot_file <- "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Bootstrap-numbers-at-age\\2023_WCNPOMLS.bsn"
-NBoot <- 100
-BootFac = 1000
-
-## Set base case model folder
+##### SET base SS3 MODEL FOLDER #####
 model.dir <- c("C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\base")
 
-## Source SS_Agepro.R script
+##### SET MODEL DOMAIN VARIABLES #####
+## Set last year of assessment
+endyr <- 2020
+
+## Set time step to be "Year" or "Quarter" for years as quarters 
+TimePeriod <- "Year"
+
+## Set number of years in projection 
+NYears <- 10
+
+## Set bootstrap file = boot_file
+boot_file <- "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuilding\\Bootstrap-numbers-at-age\\2023_WCNPOMLS.bsn"
+
+## Set number of bootstraps (number of rows in boot_file)
+NBoot <- 100
+
+## Set multiplier to convert bootstrap file elements to be absolute numbers of fish at age
+BootFac = 1000  
+
+## Set number of simulations per bootstrap
+NSims <- 10 
+
+##### SET AGEPRO RECRUITMENT MODEL VARIABLES #####
+## Set number of recruitment models = 1
+NRecModel <- 1 
+
+## Set recruitment model vector with NRecModel elements
+## Here the ordered vector RecruitType is set to be model 14
+RecruitType <- c(14)
+
+## RecFac is a multiplier to convert units of recruit model output (e.g., 1000 fish) to AGEPRO numbers of fish
+RecFac <- 1000
+
+## SSBFac is a divisor to convert kg of SSB in AGEPRO to recruit model input units of SSB (e.g., 1000 mt)
+## Note: Set SSBFac <- 1 for empirical recruits per spawner models 2 and 4 given the SS3 extraction code
+SSBFac <- 1000 
+
+## Maximum number of recruitment observations in a recruit model
+MaxRecObs <- 100
+
+## Set age-0 annual natural mortality rate to convert age-0.0 fish to age-0.5 fish
+M0 <- 0.54 
+
+##### Source SS_Agepro.R script #####
 source(file.path(script.dir,"SS_to_Agepro.R"))
               
-## Extract SSInput with SS_To_Agepro.R script			  
+##### Extract SSInput with SS_To_Agepro.R script #####
 SSInput <- SS_To_Agepro(model.dir=model.dir, script.dir=script.dir, endyr=2020, TimeStep="Year")
 
-## Copy SSInput into SaveInput to save it
-SaveInput <- SSInput
+## Copy SSInput into Work to save it for auxiliary analyses
+Work <- SSInput
 
-## Adjust SSInput to the fleets you want to include: for this I am only choosing the fleets with unique selectivities, then for the fleets with the same selectivities, adding up the catch proportions for the new fleet
+##################### UPDATED CODE 11-JAN-2024 #####################
+
+## Adjust SSInput to the fleets you want to include: Here we choose the fleets with unique selectivities
 UniqueFleets<- SSInput$Fishery_SelAtAge %>%
   filter(Yr == 2020) %>%
   distinct(across(-c(Yr, Fleet)), .keep_all = TRUE) %>%
   select(Fleet) %>% pull()
 
-
-##identify years in the model
+## Identify years in the model
 Years <- seq(min(SSInput$Fishery_SelAtAge$Yr),max(SSInput$Fishery_SelAtAge$Yr))
-
 
 ## Identify set of unique fleets by year
 matching_indices<-list()
@@ -70,36 +93,30 @@ for(j in 1:length(Years)) {
     matching_indices[[j]][[i]] <- which(apply(SSInput$Fishery_SelAtAge[,-2], 1, function(x) all(x %in% target_row)))
   }}
 
+YearAvg <- seq(endyr-2,endyr)  ## Define the set of years you want to average over for selectivity and catch at age over
 
-
-
-
-YearAvg <- seq(endyr-2,endyr)  ## define which years you want to average you selectivity and catch at age over
-
-##Average your SelAtAge across your interested years
+##Average your SelAtAge across years in YearAvg
 SSInput$Fishery_SelAtAge<-SSInput$Fishery_SelAtAge %>%
-  filter(Fleet %in% UniqueFleets) %>%   ##filter out only the unique fleets
-  filter(Yr %in% YearAvg)  %>% ##save the year/years you want to average the Fishery selectivity over
-  group_by(Fleet) %>%  ## average each age by fleet
+  filter(Fleet %in% UniqueFleets) %>%   ## Filter out the nonunique fleets
+  filter(Yr %in% YearAvg)  %>% ## Save the year/years to average the fishery selectivity over
+  group_by(Fleet) %>%  ## Average each age by fleet
   summarize(across(c(2:16),mean))
 
-## Number of unique fleets in the assessment
+## Set the number of unique fleets in the assessment
 SSInput$Nfleets<-length(UniqueFleets)
 
 ## Adjust CV matrix to match the number of unique fleets
 SSInput$Fishery_SelAtAgeCV<-SSInput$Fishery_SelAtAgeCV[UniqueFleets,]
 
-
-## Average your catch at age across your interested years
+## Average catch at age across years in YearAvg
 SSInput$Catage<-SSInput$Catage %>% 
-  filter(Fleet %in% UniqueFleets) %>%   ##filter out only the unique fleets
-  filter(Yr %in% YearAvg) %>%  ##save the year/years you want to average the catch at age over
-  group_by(Fleet) %>%  ## average each age by fleet
+  filter(Fleet %in% UniqueFleets) %>%   ## Filter out the nonunique fleets
+  filter(Yr %in% YearAvg) %>%  ## Save the year/years to average the fishery selectivity over
+  group_by(Fleet) %>%  ## Average each age by fleet
   summarize(across(c(2:16),mean))
 
 ## Adjust the CV matrix
 SSInput$CatageCV<-SSInput$CatageCV[UniqueFleets,]
-
 
 ## For the catch by fleet, produce a list of the rows by year that should be combined for fleets that share selectivity
 duplicated_rows<-matching_indices[[1]]
@@ -115,8 +132,7 @@ CatchbyFleet<-SSInput$CatchbyFleet %>%
   select(-starts_with("sel(B):_"))
 names(CatchbyFleet)<-c("Yr",UniqueFleets) 
 
-
-## calculate the proportion of catch by year and fleet from the combined catch by fleet
+## Calculate the proportion of catch by year and fleet from the combined catch by fleet
 ProportionCatch<-CatchbyFleet
 for( i in 1:length(Years)) {
   
@@ -144,6 +160,7 @@ FbyFleet<- FbyFleet %>%
   filter(Yr %in% YearAvg) %>%
   summarize(across(c(2:ncol(FbyFleet)),\(x) mean(x,na.rm=TRUE)))
 
+##################### END UPDATED CODE #####################
          
 ## Build Recruitment object as an input list
 ## Each recruitment model from model 1 to 21 has a specific Recruitment object list. 
@@ -228,7 +245,7 @@ Recruitment$Recruits <- exp(-0.5*M0)*Recruitment$Recruits
 ## Harvest is the harvest strategy you want to use: first column is the harvest specification, then one column for each fleet for each year. Landings (catch) = 1, F-Mult (F) = 0, Removals = ?
 
 ## Here is an example assuming constant catch over the number of years of the model where catch is partitianed based upon the relative catch by fleet in the last year of the assessment, this is calculated in SSInput$CatchbyFleet
-TotalCatch <- 2000
+TotalCatch <- 2300
 
 FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
@@ -244,7 +261,7 @@ AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuil
                     NBoot = NBoot,
                     BootFac = BootFac,
                     SS_Out = SSInput,
-                    ModelName="test_model_generic",
+                    ModelName="test_model",
                     ProjStart = 2021,
                     NYears = NYears,
                     MinAge = 1,
@@ -253,7 +270,7 @@ AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuil
                     Discards = 0,
                     set.seed = 123,
                     ScaleFactor = c(1000,1000,1000),  #scalebio, scalerec, scalestk
-                    UserSpecified = c(0,-1,0,0,0,0,0),
+                    UserSpecified = c(0,0,0,0,0,0,0),
                     TimeVary = c(0,0,0,0,0,0,0),
                     FemaleFrac = 0.5,
                     Recruitment = Recruitment,
