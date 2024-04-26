@@ -1,5 +1,5 @@
 ##ignore all ss.exe files
-*.exe
+#*.exe
 
 ## ignore all .Rdata files
 *.Rdata
