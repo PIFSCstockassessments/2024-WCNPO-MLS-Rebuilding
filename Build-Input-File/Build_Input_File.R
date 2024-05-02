@@ -61,6 +61,10 @@ MaxRecObs <- 100
 ## Set age-0 annual natural mortality rate to convert age-0.0 fish to age-0.5 fish
 M0 <- 0.54 
 
+## Set normalize selectivity flag
+## If NormSelFlag = 1 then rescale selectivities for each fleet group to have a max of 1
+NormSelFlag <- 1
+
 ##### Source SS_Agepro.R script #####
 source(file.path(script.dir,"SS_to_Agepro.R"))
               
@@ -93,7 +97,7 @@ for(j in 1:length(Years)) {
     matching_indices[[j]][[i]] <- which(apply(SSInput$Fishery_SelAtAge[,-2], 1, function(x) all(x %in% target_row)))
   }}
 
-YearAvg <- seq(endyr-2,endyr)  ## Define the set of years you want to average over for selectivity and catch at age over
+YearAvg <- seq(endyr,endyr)  ## Define the set of years you want to average over for selectivity and catch at age over
 
 ##Average your SelAtAge across years in YearAvg
 SSInput$Fishery_SelAtAge<-SSInput$Fishery_SelAtAge %>%
@@ -104,6 +108,16 @@ SSInput$Fishery_SelAtAge<-SSInput$Fishery_SelAtAge %>%
 
 ## Set the number of unique fleets in the assessment
 SSInput$Nfleets<-length(UniqueFleets)
+
+if (NormSelFlag == 1)
+  {
+##  Normalize fishery selectivity at age for each fleet group
+  for (f in 1:SSInput$Nfleets)
+    {
+      max <- max(SSInput$Fishery_SelAtAge[f,2:16])
+      SSInput$Fishery_SelAtAge[f,2:16] <- SSInput$Fishery_SelAtAge[f,2:16]/max
+    }
+  }
 
 ## Adjust CV matrix to match the number of unique fleets
 SSInput$Fishery_SelAtAgeCV<-SSInput$Fishery_SelAtAgeCV[UniqueFleets,]
@@ -140,10 +154,18 @@ for( i in 1:length(Years)) {
   ProportionCatch[i,c(2:ncol(ProportionCatch))]<-TempCatch/sum(TempCatch) 
 }
 
-## Repeat exercise to combine fleet fishing mortalities across years and mirrored selectivity
+## Repeat exercise to combine fleet fishing mortalities across years and mirrored 
 FbyFleet<-SSInput$FbyFleet %>%
   select(-starts_with("F:_"))
 names(FbyFleet)<-c("Yr",UniqueFleets) 
+
+## Calculate the proportion of F by year and fleet from the combined F by fleet
+ProportionF<-FbyFleet
+for( i in 1:length(Years)) {
+  
+  TempF<-FbyFleet[i,-1]
+  ProportionF[i,c(2:ncol(ProportionF))]<-TempF/sum(TempF) 
+}
 
 ##From here you can average catch, average F, or average proportion of catch over the years you are interested in
 ## sticking with the three year average used above:
@@ -160,6 +182,9 @@ FbyFleet<- FbyFleet %>%
   filter(Yr %in% YearAvg) %>%
   summarize(across(c(2:ncol(FbyFleet)),\(x) mean(x,na.rm=TRUE)))
 
+ProportionF<- ProportionF %>%
+  filter(Yr %in% YearAvg) %>%
+  summarize(across(c(2:ncol(ProportionF)),\(x) mean(x,na.rm=TRUE)))
 ##################### END UPDATED CODE #####################
          
 ## Build Recruitment object as an input list
@@ -170,7 +195,7 @@ FbyFleet<- FbyFleet %>%
 Recruitment <- list()
 
 ## Set Recr_Model type (one of 1:21 recruit model choices, except 9 which is deprecated)
-Recruitment$Recr_Model <- RecruitType[1]
+Recruitment$Recr_Model <- RecruitType[14]
 
 ## Set single recruitment model probability by time period to be 1
 Recruitment$Recr_Prob <- rep(1,NYears)
@@ -183,7 +208,9 @@ Recruitment$MaxRecObs <- MaxRecObs
 if (RecruitType[1] == 1)
 {
 ## Model 1 - Not implemented yet
+
 }  else if (RecruitType[1] == 2)
+
 {
 ## Model 2. Empirical Recruits Per Spawning Biomass Distribution
 #Recruitment is a list with two objects: Nobs with is the number of observations, recruits is a dataframe with two columns, recruitment and SSB
@@ -199,7 +226,9 @@ Recruitment$Recruits <- SSInput$RecruitmentObs %>%
 Recruitment_Age0_July_1st <- Recruitment$Recruits[,1]
 # pply survival rate ot calculate age-0.5 recruitment on January 1st for annual projections (thousands of age-0.5 fish on January 1st in endyr+1)
 Recruitment$Recruits[,1] <- exp(-0.5*M0)*Recruitment$Recruits[,1]
+
 } else if (RecruitType[1] == 3 || RecruitType[1] == 14)
+
 {
 ## Models 3 and 14
 # Recruitment is a list with two objects: Nobs is the number of observations, and recruits is a vector of observed recruitment
@@ -215,6 +244,7 @@ Recruitment_Age0_July_1st <- Recruitment$Recruits
 ## Calculate age-0.5 recruitment on January 1st for annual projections (thousands of age-0.5 fish on January 1st in endyr+1)
 Recruitment$Recruits <- exp(-0.5*M0)*Recruitment$Recruits
 } else
+
 {
 ## Model 4 and 15
 # Recruitment is a list with 4 objects: Nobs is a vector with the number of observations in each recruitment level, Level1obs is a dataframe of recruitment and SSB for the level one recruitment observations, Level2Obs is a dataframe of recruitment and SSB for the level two recruitment observations, and SSBBreak is the SSB break limit between the two recruitment levels
@@ -244,12 +274,20 @@ Recruitment$Recruits <- exp(-0.5*M0)*Recruitment$Recruits
 
 ## Harvest is the harvest strategy you want to use: first column is the harvest specification, then one column for each fleet for each year. Landings (catch) = 1, F-Mult (F) = 0, Removals = ?
 
-## Here is an example assuming constant catch over the number of years of the model where catch is partitianed based upon the relative catch by fleet in the last year of the assessment, this is calculated in SSInput$CatchbyFleet
-TotalCatch <- 2300
+## Set harvest based on catch or F or both
+# TotalCatch <- 2300
 
-FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
+# FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
-Harvest <- list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
+# Harvest <- list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
+
+TotalF <- 0.63
+
+FReference <- 0.63
+
+FleetRemovals <- t(sapply(ProportionF, function(p) rep(p*(TotalF/FReference),NYears)))
+
+Harvest <- list("Type"=c(rep(0,NYears)),"Harvest"=FleetRemovals)
 
 source(file.path(script.dir,"AGEPRO_Input.R"))
 ##source("AGEPRO_Input.R")
