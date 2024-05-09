@@ -1,8 +1,7 @@
-## R Script filename = make_Constant_Q_CR_age1_highS.R
+## R Script filename = make_FSQ_template.R
 ## Purpose: Extract input data and build an AGEPRO input file
-## for a constant catch biomass quota projection Q=2200 mt using YearAvg = [2020,2020]
-## With low-survival catch-release for age-1 MLS 
-## where P(caught and released alive) = 0.4275, or 0.5*0.855
+## for a constant fishing mortality FSQ=0.68 projection using YearAvg = [2020,2020]
+## Produces P(SSB rebuild in 2034) = 0.XX at F=(0.68)
 ## 6-May-2024
 
 ## Clear RStudio environment if needed
@@ -119,12 +118,6 @@ if (NormSelFlag == 1)
       max <- max(SSInput$Fishery_SelAtAge[f,2:16])
       SSInput$Fishery_SelAtAge[f,2:16] <- SSInput$Fishery_SelAtAge[f,2:16]/max
     }
-  }
-  
-## Catch-release for age-1 fish at 0.4275 survival rate
-for (f in 1:SSInput$Nfleets)
-  {
-    SSInput$Fishery_SelAtAge[f,2] <- SSInput$Fishery_SelAtAge[f,2]*0.5725
   }
 
 ## Adjust CV matrix to match the number of unique fleets
@@ -302,7 +295,7 @@ Recruitment$alpha <- Recruitment$alpha*exp(-0.5*Recruitment$var)
 
 # Set Flimit = F20% and Fmsy
 # Flimit <- 0.53
-# Fmsy <- 0.63
+Fmsy <- 0.63
 
 ## Set harvest strategy based on catch or F or both
 ## The Phased_template.inp is set up for a phased harvest strategy
@@ -312,36 +305,34 @@ Recruitment$alpha <- Recruitment$alpha*exp(-0.5*Recruitment$var)
 # TotalCatchPhase1 <- 2400
 # TotalCatchPhase2 <- 1800
 
-# Set constant catch biomass quota constant Q=2200  (mt)
-ConstantQ <- 2200
-
 # FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
 # Harvest <- list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
 
 # Set 3-year average to be the expected initial total F Multiplier during 2021-2024
 InitTotalF <- 0.68
+F2020 <- 0.58
 
 # Set the constant F for the projection years
-# ConstantF <- 0.53
+ConstantF <- InitTotalF
 
-# Set reference F 
+# Set reference F for calculating the F-Multiplier = F/FReference
 FReference <- 0.63
 
-# Set FleetRemovals to be the vector proportion of catch biomass by fleet in YearAvg 
-# times the constant catch biomass quota during all years, or [1,NYears]
-FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*ConstantQ,NYears)))
+# Set FleetRemovals to be the vector proportion of fishing mortality by fleet in YearAvg 
+# times the ConstantF F-multiplier during all years, or [1,NYears]
+FleetRemovals <- t(sapply(ProportionF, function(p) rep (p*(ConstantF/FReference),NYears)))
 
 # Set FleetRemovals to be the vector proportion of fishing mortality by fleet in YearAvg 
 # times the initial total F-multiplier during years 2021-2024, or [1:4]
 FleetRemovals[,1:4] <- t(sapply(ProportionF, function(p) rep(p*(InitTotalF/FReference),4)))
 
-# Set the Harvest list to be the Constant Catch Biomass Quota strategy
+# Set the Harvest list to be the Constant F-based strategy
 # with catch flag = 0 in years 2021-2034, or [1:NYears] and harvest equal to FleetRemovals
-Harvest <- list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
+Harvest <- list("Type"=c(rep(0,NYears)),"Harvest"=FleetRemovals)
 
 # Set the Harvest list to have catch flag = 0 and fishing mortality in years 2021-2024, or [1:4]
-Harvest[[1]][1:4] <- rep(0,4)
+# Harvest[[1]][1:4] <- rep(0,4)
 
 source(file.path(script.dir,"AGEPRO_Input.R"))
 ##source("AGEPRO_Input.R")
@@ -353,14 +344,14 @@ AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuil
                     NBoot = NBoot,
                     BootFac = BootFac,
                     SS_Out = SSInput,
-                    ModelName="Constant_Q_2200_CR_age1_highS",
+                    ModelName="FSQ_template",
                     ProjStart = 2021,
                     NYears = NYears,
                     MinAge = 1,
                     NSims = NSims,
                     NRecr_models = NRecModel,
                     Discards = 0,
-                    set.seed = 123,
+                    set.seed = 72991,
                     ScaleFactor = c(1000,1000,1000),  #c(scalebio, scalerec, scalestk)
                     UserSpecified = c(0,0,0,0,0,0,0),
                     TimeVary = c(0,0,0,0,0,0,0),

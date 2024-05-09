@@ -1,9 +1,9 @@
 ## R Script filename = make_Constant_Q_CR_age1_lowS.R
 ## Purpose: Extract input data and build an AGEPRO input file
-## for a constant catch biomass quota projection Q=2200 mt using YearAvg = [2020,2020]
+## for a constant catch biomass quota projection Q=2180 mt using YearAvg = [2020,2020]
 ## With low-survival catch-release for age-1 MLS 
 ## where P(caught and released alive) = 0.2, or 0.5*0.4
-## 6-May-2024
+## 7-May-2024
 
 ## Clear RStudio environment if needed
 ## rm(list=ls())
@@ -312,8 +312,8 @@ Recruitment$alpha <- Recruitment$alpha*exp(-0.5*Recruitment$var)
 # TotalCatchPhase1 <- 2400
 # TotalCatchPhase2 <- 1800
 
-# Set constant catch biomass quota constant Q=2200  (mt)
-ConstantQ <- 2200
+# Set constant catch biomass quota constant Q=2180  (mt)
+ConstantQ <- 2180
 
 # FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
@@ -353,14 +353,14 @@ AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuil
                     NBoot = NBoot,
                     BootFac = BootFac,
                     SS_Out = SSInput,
-                    ModelName="Constant_Q_2200_CR_age1_lowS",
+                    ModelName="Constant_Q2180_CR_age1_lowS",
                     ProjStart = 2021,
                     NYears = NYears,
                     MinAge = 1,
                     NSims = NSims,
                     NRecr_models = NRecModel,
                     Discards = 0,
-                    set.seed = 123,
+                    set.seed = 200148,
                     ScaleFactor = c(1000,1000,1000),  #c(scalebio, scalerec, scalestk)
                     UserSpecified = c(0,0,0,0,0,0,0),
                     TimeVary = c(0,0,0,0,0,0,0),
@@ -382,4 +382,4 @@ AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuil
                     RExport = 1,
                     SetScale = TRUE,
                     PercentileReport = TRUE,
-                    Percentile = 50)
+                    Percentile = 40)
