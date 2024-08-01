@@ -330,7 +330,7 @@ FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*ConstantQ,NYears)))
 FleetRemovals[,1:4] <- t(sapply(ProportionF, function(p) rep(p*(InitTotalF/FReference),4)))
 
 # Set the Harvest list to be the Constant Catch Biomass Quota strategy
-# with catch flag = 0 in years 2021-2034, or [1:NYears] and harvest equal to FleetRemovals
+# with catch flag = 1 in years 2021-2034, or [1:NYears] and harvest equal to FleetRemovals
 Harvest <- list("Type"=c(rep(1,NYears)),"Harvest"=FleetRemovals)
 
 # Set the Harvest list to have catch flag = 0 and fishing mortality in years 2021-2024, or [1:4]

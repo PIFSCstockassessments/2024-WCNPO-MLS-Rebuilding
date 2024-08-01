@@ -306,7 +306,7 @@ Recruitment$alpha <- Recruitment$alpha*exp(-0.5*Recruitment$var)
 # TotalCatchPhase2 <- 1800
 
 # Set constant catch biomass quota constant Q=3000  (mt)
-ConstantQ <- 2500
+ConstantQ <- 2600
 
 # FleetRemovals <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatch,NYears)))
 
@@ -346,7 +346,7 @@ AGEPRO_INP(output.dir = "C:\\Users\\jon.brodziak\\Desktop\\2024 WCNPO MLS Rebuil
                     NBoot = NBoot,
                     BootFac = BootFac,
                     SS_Out = SSInput,
-                    ModelName="Constant_Q_LT",
+                    ModelName="Constant_Q2600_LT",
                     ProjStart = 2021,
                     NYears = NYears,
                     MinAge = 1,
