@@ -4,19 +4,22 @@
 > This repository is a place to share information, data, and analytic work on the rebuilding plan  
 for the Striped Marlin stock in the Western and Central North Pacific Ocean in 2024
 
-### **Folder Structure** 
-> * SS3 base case assessment files are in /base
-> * AGEPRO executable is in /bin
-> * AGEPRO bootstrap numbers-at-age files are in /Bootstrap-numbers-at-age
-> * Build scripts for AGEPRO input files are in /Build-Input-File
-> * Data are in /Data
-> * References are in /References
-> * Rscripts are in /Rscripts
+### **Folder Structure**
+> * The full rebuilding analysis results are in /2024-results
+> * The SS3 base case 2023 stock assessment files are in /base
+> * The AGEPRO executable "agepro_MLS_rebuild.exe" is in /bin
+> * The AGEPRO bootstrap numbers-at-age files are in /Bootstrap-numbers-at-age
+> * Several scripts to build AGEPRO input files are in /Build-Input-File
+> * Some MLS data are in /Data
+> * Some background references are in /References
+> * Some background and rebuilding analysis presentations are in /Presentations
+> * Key R language scripts to extract assessment data are in /Rscripts
+> * The draft rebuilding analysis working paper is "*ISC_24_BILLWG-01_03.pdf*"
 
 ### **Contributions**
-> * Please identify file name on first line of contributed file
-> * Document R scripts and other contributed files where possible
-> * Edit readme.md file to describe folder contents where possible
+> * Please list the file name on the first line of contributed file
+> * Document R scripts and other contributed files
+> * Edit the readme.md file to describe folder contents
 
 ### **Contacts**
 > Points of contact: Jon Brodziak, Michelle Sculley  
