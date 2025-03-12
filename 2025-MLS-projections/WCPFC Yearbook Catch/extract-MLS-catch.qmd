@@ -1,0 +1,37 @@
+---
+title: 'Extract MLS catch data from WCPFC Yearbook for 2024'
+author: "Jon Brodziak"
+date: today
+output:
+  html_document: default
+  pdf_document: default
+number-sections: true
+---
+
+```{r setup, include=FALSE}
+rm(list = ls())
+knitr::opts_chunk$set(echo = FALSE)
+#|label:load-libraries 
+library(dplyr)
+library(ggplot2)
+library(mgcv)
+library(psych)
+library(changepoint)
+library(rstan)
+library(shinystan)
+library(brms)
+library(rpart)
+library(rpart.plot)
+rpart.control(minsplit = 10)
+```
+
+```{r echo=FALSE}
+#|label: read-NorthWCPFC-Yearbook-data
+mls <- read.csv("NorthWCPFC.csv", header=T)
+attach(mls)
+str(mls)
+mls <- mls %>% filter(SP_CODE == "MLS")
+str(mls)
+mls_2020 <- mls %>% filter(YY >= "2020")
+str(mls_2020)
+```

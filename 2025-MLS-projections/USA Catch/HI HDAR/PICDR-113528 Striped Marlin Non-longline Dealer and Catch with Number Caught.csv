@@ -1,0 +1,6 @@
+report_year,species_id,display_name,catch_kgs,sold_kgs,sold_est_kgs,number_caught,mean weight (kg)
+2020,9,Striped Marlin,9979,6351,7831,299,33.375
+2021,9,Striped Marlin,8820,5127,6352,240,36.750
+2022,9,Striped Marlin,9585,7184,8791,308,31.120
+2023,9,Striped Marlin,6743,5577,6808,210,32.110
+2024,9,Striped Marlin,18591,7341,8834,716,25.965

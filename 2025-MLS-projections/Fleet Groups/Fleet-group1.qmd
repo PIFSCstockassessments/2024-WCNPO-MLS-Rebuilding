@@ -1,0 +1,15 @@
+---
+title: "Fleet Group 1 <br>Japanese Longline <br>Quarter 1 - Area 1"
+format:
+  html: default
+  pdf: default
+keep-md: false
+---
+
+```{mermaid}
+graph TD
+    G1((Fleet Group 1)) -- Observed Length <br>Compositions --> B((Japanese Longline<br>Quarter 1 - Area 2<br>1994 - 2020))
+    G1 --> C(Japanese Longline<br>Quarter 1 - Area 1<br>1977 - 1993)
+    G1 --> D(Japanese Drift Net<br>Quarters 1 and 4<br>1977 - 1993)
+```
+

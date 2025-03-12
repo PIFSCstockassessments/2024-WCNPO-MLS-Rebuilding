@@ -1,0 +1,20 @@
+**2025-02-06 BILLWG MLS projection analysis discussion with Michelle**
+
+-   Japan submitted catch biomass data in "jpn_mls_catch.csv"
+    -   Catch units are kg, not tons
+    -   2021 catch biomass is not included
+    -   Catch data for 2023-2024 are not fully available
+    -   2023-2024 catch data are carried over from 2022 catches
+    -   Need to get 2021 data from Marko
+-   USA catch biomass will be requested with PIFSC data request
+    -   Jon will make the data request
+    -   In interim, USA catch will be taken from WCPFC Yearbook values for 2021-2024, with carry over as needed for 2024
+-   Taiwanese catch
+    -   Will be taken from WCPFC Yearbook values for 2021-2024, with carry over as needed for 2024
+-   Other catch data
+    -   Will be taken from WCPFC Yearbook values for 2021-2024, with carry over as needed for 2024
+-   Other changes to 2024 projection modeling approach
+    -   Use Scenarios 1-3 for 2025-2027 catch biomass
+    -   Calculate constant catch for 2028-2034 to meet MLS rebuilding target
+    -   Need to extract catch biomass from base case SS3 output to apportion
+    -   2021-2024 catches to fleet groups - this will require some additional coding

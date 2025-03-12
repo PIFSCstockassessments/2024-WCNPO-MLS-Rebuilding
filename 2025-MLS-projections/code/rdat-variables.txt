@@ -1,0 +1,6 @@
+ [1] "metadata"        "genparms"        "runopt"          "harvestscenario" "recruits"       
+ [6] "ssb"             "jan1bio"         "meanbio"         "totalcatch"      "landings"       
+[11] "fmult"           "stock2021"       "stock2022"       "stock2023"       "stock2024"      
+[16] "stock2025"       "stock2026"       "stock2027"       "stock2028"       "stock2029"      
+[21] "stock2030"       "stock2031"       "stock2032"       "stock2033"       "stock2034"      
+[26] "threshold"       "threshprob"

@@ -1,0 +1,13 @@
+---
+title: " Fleet Group 6 <br>Japanese Winter Drift Net <br>Quarters 1 and 4"
+format:
+  html: default
+  pdf: default
+keep-md: false
+---
+
+```{mermaid}
+graph TD
+    G1((Fleet Group 6)) -- Observed Length <br>Compositions --> B((Japanese Drift Net<br>Quarters 1 and 4<br>1975 - 1976 and 1994 - 2020))
+```
+

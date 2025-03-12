@@ -1,0 +1,14 @@
+---
+title: "Fleet Group 9: Taiwanese Longline"
+format:
+  html: default
+  pdf: default
+keep-md: false
+---
+
+```{mermaid}
+graph TD
+    G1((Fleet Group 9)) -- Observed Length <br>Compositions --> B((Taiwanese Distant-Water Longline<br>1967 - 2020))
+    G1 --> C(Taiwanese Small-Scale Tuna Longline<br>1958 - 2020)
+```
+

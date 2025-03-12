@@ -1,0 +1,14 @@
+---
+title: "Fleet Group 7 <br>Japanese Summer Drift Net <br>Quarters 2 and 3"
+format:
+  html: default
+  pdf: default
+keep-md: false
+---
+
+```{mermaid}
+graph TD
+    G1((Fleet Group 7)) -- Observed Length <br>Compositions --> B((Japanese Drift Net<br>Quarters 2 and 3<br>1975 - 1976 and 1994 - 2020))
+    G1 --> C(Taiwanese Others<br>1958 - 2020)
+```
+

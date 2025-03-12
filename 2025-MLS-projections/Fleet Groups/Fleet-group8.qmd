@@ -1,0 +1,14 @@
+---
+title: "Fleet Group 8 <br>United States Longline"
+format:
+  html: default
+  pdf: default
+keep-md: false
+---
+
+```{mermaid}
+graph TD
+    G1((Fleet Group 8)) -- Observed Length <br>Compositions --> B((United States Longline<br>1987 - 2020))
+    G1 --> C(United States Others<br>1987 - 2020)
+```
+
