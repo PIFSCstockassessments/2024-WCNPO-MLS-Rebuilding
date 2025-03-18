@@ -1,8 +1,10 @@
 ---
-title: "Fleet Group 7 <br>Japanese Summer Drift Net <br>Quarters 2 and 3"
+title: "Fleet Group 7"
+subtitle: "\\LARGE Japanese Drift Net Quarters 2 and 3"
 format:
-  html: default
-  pdf: default
+  pdf:
+    documentclass: article
+    geometry: portrait
 keep-md: false
 ---
 

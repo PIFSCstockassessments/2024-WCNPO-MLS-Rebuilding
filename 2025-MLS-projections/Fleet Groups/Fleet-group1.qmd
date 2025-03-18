@@ -1,8 +1,10 @@
 ---
-title: "Fleet Group 1 <br>Japanese Longline <br>Quarter 1 - Area 1"
+title: "Fleet Group 1"
+subtitle: "\\LARGE Japanese Longline Quarter 1 - Area 1"
 format:
-  html: default
-  pdf: default
+  pdf:
+    documentclass: article
+    geometry: portrait
 keep-md: false
 ---
 
@@ -12,4 +14,3 @@ graph TD
     G1 --> C(Japanese Longline<br>Quarter 1 - Area 1<br>1977 - 1993)
     G1 --> D(Japanese Drift Net<br>Quarters 1 and 4<br>1977 - 1993)
 ```
-

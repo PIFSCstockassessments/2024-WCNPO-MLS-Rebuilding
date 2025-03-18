@@ -35,7 +35,7 @@ df <- data.frame(
 recruits_plot <- ggplot(df, aes(x = x, y = y)) +
   xlab("Year") +
   ylab("Recruitment (000s age-1 fish") +
-  ggtitle("Recruitment Under Scenario 1") +
+  ggtitle("Recruitment in Scenario 1") +
   theme_bw() +
   scale_x_continuous(breaks = seq(min(year), max(year), by = 2)) +
   scale_y_continuous(limits = c(0, 500), breaks = seq(0, 500, by = 100)) +
@@ -44,17 +44,22 @@ recruits_plot <- ggplot(df, aes(x = x, y = y)) +
   geom_ribbon(aes(ymin = y - 1.28 * se, ymax = y + 1.28 * se), fill = "gray70", alpha = 0.5) +
   
   # Main lines
-  geom_line(aes(y = y), linetype = "dashed", linewidth = 1.1, color = "black") +
+#  geom_line(aes(y = y), linetype = "dashed", linewidth = 1.1, color = "black") +
   geom_line(aes(y = pct50), linetype = "solid", linewidth = 1.2, color = "blue") +
   geom_line(aes(y = pct75), linetype = "dotdash", linewidth = 0.9, color = "blue") +
   geom_line(aes(y = pct25), linetype = "dotdash", linewidth = 0.9, color = "blue") +
   geom_line(aes(y = pct90), linetype = "dotted", linewidth = 0.8, color = "blue") +
   geom_line(aes(y = pct10), linetype = "dotted", linewidth = 0.8, color = "blue") +
   geom_line(aes(y = avg_recruits), linetype = "dashed", linewidth = 1.2, color = "darkgreen") +
-  
-  # Corrected annotation using annotate()
-  annotate("text", x = max(year) - 9, y = avg_recruits * 1.05, 
-           label = "Average Recruitment, 1977-2020", color = "darkgreen", fontface = "italic", size = 3, hjust = 0)
+
+#  annotate("text", x = max(year) - 9, y = avg_recruits * 1.07, 
+#           label = "Average 1977-2020", color = "darkgreen", fontface = "italic", size = 5, hjust = 0) +
+
+theme(
+  plot.title = element_text(size = 20, face = "bold"),
+  axis.title = element_text(size = 16),
+  axis.text = element_text(size = 14)
+)
 
 # Save plot as PNG
 ggsave(output_file, plot = recruits_plot, width = 8, height = 6, dpi = 300)

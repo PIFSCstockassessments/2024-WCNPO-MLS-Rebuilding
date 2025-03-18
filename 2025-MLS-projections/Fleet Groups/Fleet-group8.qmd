@@ -1,8 +1,10 @@
 ---
-title: "Fleet Group 8 <br>United States Longline"
+title: "Fleet Group 8"
+subtitle: "\\LARGE United States Longline"
 format:
-  html: default
-  pdf: default
+  pdf:
+    documentclass: article
+    geometry: portrait
 keep-md: false
 ---
 

@@ -27,7 +27,7 @@ df <- data.frame(
 fmort_threshprob <- ggplot(df, aes(x = year, y = avg)) +
   xlab("Year") +
   ylab("Pr(Fishing Mortality > Limit)") +
-  ggtitle("Annual Overfishing Probabilities Under Scenario 2") +
+  ggtitle("Overfishing Probabilities in Scenario 2") +
   theme_bw() +
   scale_x_continuous(breaks = seq(min(year), max(year), by = 2)) +
   scale_y_continuous(limits = c(-0.01, 1.01), breaks = seq(0, 1, by = 0.1)) +
@@ -36,9 +36,14 @@ fmort_threshprob <- ggplot(df, aes(x = year, y = avg)) +
   geom_line(aes(y = avg), linetype = "solid", linewidth = 1.2, color = "blue") +
   geom_line(aes(y = threshprob), linetype = "dashed", linewidth = 1.2, color = "darkgreen") +
   
-  # Corrected annotation using annotate()
-  annotate("text", x = max(year) - 9, y = threshprob * 1.05, 
-           label = "Even Odds", color = "darkgreen", fontface = "italic", size = 3, hjust = 0)
+#  annotate("text", x = max(year) - 9, y = threshprob * 1.1, 
+#           label = "Even Odds", color = "darkgreen", fontface = "italic", size = 5, hjust = 0) +
+
+theme(
+  plot.title = element_text(size = 20, face = "bold"),
+  axis.title = element_text(size = 16),
+  axis.text = element_text(size = 14)
+)
 
 # Save plot as PNG
 ggsave(output_file, plot = fmort_threshprob, width = 8, height = 6, dpi = 300)

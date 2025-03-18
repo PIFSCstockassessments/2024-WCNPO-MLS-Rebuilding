@@ -3,6 +3,8 @@ title: "Fleet Group 3 <br>Japanese Longline <br>Quarter 2 - Area 1"
 format:
   html: default
   pdf: default
+    documentclass: article
+    geometry: landscape
 keep-md: false
 ---
 

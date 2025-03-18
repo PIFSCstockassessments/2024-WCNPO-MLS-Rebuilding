@@ -1,8 +1,10 @@
 ---
-title: "Fleet Group 9: Taiwanese Longline"
+title: "Fleet Group 9"
+subtitle: "\\LARGE Taiwanese Longline"
 format:
-  html: default
-  pdf: default
+  pdf:
+    documentclass: article
+    geometry: portrait
 keep-md: false
 ---
 
