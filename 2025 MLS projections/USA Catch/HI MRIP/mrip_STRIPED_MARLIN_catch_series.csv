@@ -1,0 +1,94 @@
+ï»¿Marine Recreational Information Program Query Results
+
+Your Query Parameters:
+
+·Query: MRIP CATCH TIME SERIES
+
+·Year: 1981 - 2024
+
+·Summary:ANNUAL
+
+·Fishing Year: CALENDAR YEAR (JANUARY 1 - DECEMBER 31)
+
+·Geographic Area: HAWAII
+
+·Species: STRIPED MARLIN                                                                                                                                                                                          
+
+·Fishing Mode: ALL MODES COMBINED
+
+·Fishing Area: ALL AREAS COMBINED
+
+·Type of Catch: HARVEST (TYPE A + B1)
+
+Information:
+
+·NUMBERS OF FISH
+
+·WEIGHT OF FISH (KILOGRAMS)
+
+MRIP does not support the use of estimates with a percent standard error above 50 and in those instances, recommends considering higher levels of aggregation (e.g., across states, geographic regions, or fishing modes).
+
+Results from 1981-2017 contain estimates resulting from the full application of both the Access Point Angler Intercept Survey (APAIS) and Fishing Effort Survey (FES) calibration.
+
+As of 2018 wave 1, all estimates of shore and private/rental boat fishing effort are now based on the FES.
+
+MRIP estimates for Louisiana are not available after 2013. State produced estimates are available through the MRIP National Query. For more information on state run surveys and estimates, please click <a href='http://www.wlf.louisiana.gov/lacreel' target='_blank'>here</a>.
+
+Estimates for Hawaii (prior to 2023) and Puerto Rico (prior to 2014) are based on Marine Recreational Fisheries Statistics Survey methodology and have not been calibrated.
+
+Beginning in 2023, estimates for Hawaii are produced using certified MRIP survey designs and weighted estimation methods.
+
+As part of the government's guidelines for statistical programs, the Office of Management and Budget requires federal agencies to establish their own criteria for statistical precision (Standard 4.1.5 in OMB Standards and Guidelines for Statistical Surveys)
+
+Upper and lower confidence limits are calculated using a standard 95% confidence interval. The lower 95% confidence interval is truncated at 0 to match graph output.
+
+<a href='https://www.fisheries.noaa.gov/recreational-fishing-data/recreational-fishing-data-glossary#percent-standard-error-(pse)' target='_blank'><b>PSE</b></a>, or percent standard error, is automatically included in all outputs. The higher an estimate's Percent Standard Error, or PSE, the larger the margin of error around the estimate, which means there is more uncertainty in the estimate.
+
+Estimates with a percent standard error exceeding 50 are not statistically different from zero using a standard 95% confidence interval.  Note this significance comparison is not suggesting these estimates all equal zero, but is rather intended to illustrate their high uncertainty.
+
+"Estimate Status","Year","Fishing Year","Common Name","Cumulative Through","PSE Total Harvest (A+B1)","Does Total Harvest (A+B1) Meet MRIP Standard","Is Total Harvest (A+B1) Significantly Different From 0","Total Harvest (A+B1)","Total Harvest (A+B1) Lower 95% Confidence Limit","Total Harvest (A+B1) Upper 95% Confidence Limit","PSE Harvest (A+B1) Total Weight (kg)","Does Harvest (A+B1) Total Weight (kg) Meet MRIP Standard","Is Harvest (A+B1) Total Weight (kg) Significantly Different From 0","Harvest (A+B1) Total Weight (kg)","Harvest (A+B1) Total Weight (kg) Lower 95% Confidence Limit","Harvest (A+B1) Total Weight (kg) Upper 95% Confidence Limit","Landings (no.) without Size Information","** Contribution of Imputed Data to Total Harvest Rate","** Contribution of Imputed Data to Total Harvest Rate (kg)"
+"FINAL",1981,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1982,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1983,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1984,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1985,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1986,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1987,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1988,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1989,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1990,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1991,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1992,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1993,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1994,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1995,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1996,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1997,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1998,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",1999,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",2000,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",2001,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",2002,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",2003,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",47.9,"CAUTION","YES",3437,210,6665,74,"NO","NO",22841,0,55969,2632,"0%","0%"
+"FINAL",2004,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",51.5,"NO","NO",1555,0,3124,".","NO",,10549,".",".",1027,"0%","0%"
+"FINAL",2005,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",45.9,"CAUTION","YES",1809,182,3437,46.8,"CAUTION","YES",70988,5872,136103,0,"0%","0%"
+"FINAL",2006,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",52.4,"NO","NO",1595,0,3234,".","NO",,11708,".",".",1164,"0%","0%"
+"FINAL",2007,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",45.4,"CAUTION","YES",1405,155,2655,".",,,".",".",".",1405,"0%","0%"
+"FINAL",2008,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",100,"NO","NO",164,0,486,".","NO",,3282,".",".",0,"0%","0%"
+"FINAL",2009,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",61.3,"NO","NO",699,0,1538,".",,,".",".",".",699,"0%","0%"
+"FINAL",2010,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",".",,,".",".",".",".",,,".",".",".",".","0%","0%"
+"FINAL",2011,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",99.3,"NO","NO",177,0,520,".",,,".",".",".",177,"0%","0%"
+"FINAL",2012,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",61.4,"NO","NO",2024,0,4460,".","NO",,7193,".",".",1584,"0%","0%"
+"FINAL",2013,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",54.5,"NO","NO",383,0,792,".","NO",,15044,".",".",0,"0%","0%"
+"FINAL",2014,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",42.4,"CAUTION","YES",2228,376,4079,".","NO",,3273,".",".",2080,"0%","0%"
+"FINAL",2015,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",40.4,"CAUTION","YES",1073,223,1923,".",,,".",".",".",1073,"0%","0%"
+"FINAL",2016,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",59.2,"NO","NO",326,0,704,".",,,".",".",".",326,"0%","0%"
+"FINAL",2017,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",59.1,"NO","NO",582,0,1256,".",,,".",".",".",582,"0%","0%"
+"FINAL",2018,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",100.4,"NO","NO",767,0,2276,".","NO",,29045,".",".",0,"0%","0%"
+"FINAL",2019,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",45.8,"CAUTION","YES",1643,168,3118,".",,,".",".",".",1643,"0%","0%"
+"FINAL",2020,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",57.3,"NO","NO",1607,0,3411,".","NO",,14214,".",".",1231,"23%","100%"
+"FINAL",2021,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",60.3,"NO","NO",1281,0,2795,".",,,".",".",".",1281,"0%","0%"
+"FINAL",2022,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",51.4,"NO","NO",2333,0,4684,".",,,".",".",".",2333,"0%","0%"
+"FINAL",2023,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",104.4,"NO","NO",768,0,2341,".",,,".",".",".",768,"0%","0%"
+"PRELIMINARY",2024,"CALENDAR YEAR (JAN 1 - DEC 31)","STRIPED MARLIN","ANNUAL",43,"CAUTION","YES",688,108,1268,".",,,".",".",".",688,"0%","0%"
+

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#PICDR-113526] Request for WCNPO striped marlin catch biomass from Hawaii Marine Recreational Fishing Datat</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://apps-st.fisheries.noaa.gov/jira/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [PICDR-113526]&nbsp;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113526">Request for WCNPO striped marlin catch biomass from Hawaii Marine Recreational Fishing Datat</a>
+            <span class="subText">
+               Created: 22/Feb/25                   &nbsp;Updated: 26/Feb/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">In User Acceptance</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://apps-st.fisheries.noaa.gov/jira/secure/BrowseProject.jspa?id=11180">PIFSC Data Requests</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="Data Access - Requests for direct access to PIFSC data tables"
+                href="https://apps-st.fisheries.noaa.gov/jira/issues/?jql=project%3D11180%20AND%20%22component%22%3D11879%20ORDER%20BY%20priority%20ASC"
+            >Data Access</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Data Request
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Major
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="jon.brodziak" id="word_reporter_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="jon.brodziak" id="word_assignee_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-13637076-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            None
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>Issue Links:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113527">
+                     <strike>PICDR-113527</strike>                 </a>
+            </td>
+            <td>
+                Request for WCNPO striped marlin catc...
+            </td>
+            <td>
+                Closed
+            </td>
+        </tr>
+            <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528">
+                     PICDR-113528                 </a>
+            </td>
+            <td>
+                Request for WCNPO striped marlin catc...
+            </td>
+            <td>
+                In User Acceptance
+            </td>
+        </tr>
+                                        <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113525">
+                     PICDR-113525                 </a>
+            </td>
+            <td>
+                Request for WCNPO striped marlin catc...
+            </td>
+            <td>
+                In QC Verification
+            </td>
+        </tr>
+                                        </table>
+            </td>
+        </tr>
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>DR Last Action:</b></td>
+                <td id="customfield_10515-13637076-value" class="value" bgcolor="#ffffff" width="80%">    Request Created
+</td>
+            </tr>
+                                            <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Purpose:</b></td>
+                <td id="customfield_10505-13637076-value" class="value" bgcolor="#ffffff" width="80%">      Purpose is to gather best available US catch data for conducting new WCNPO striped marlin stock projections for WCPFC and ISC.<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Date of Request:</b></td>
+                <td id="customfield_10848-13637076-value" class="value" bgcolor="#ffffff" width="80%">          <span title="21/Feb/25"><time datetime="2025-02-21">21/Feb/25</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Date Needed by:</b></td>
+                <td id="customfield_10833-13637076-value" class="value" bgcolor="#ffffff" width="80%">          <span title="28/Feb/25"><time datetime="2025-02-28">28/Feb/25</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient:</b></td>
+                <td id="customfield_10518-13637076-value" class="value" bgcolor="#ffffff" width="80%">            <span class="aui-avatar aui-avatar-small"><span class="aui-avatar-inner"><img src="https://apps-st.fisheries.noaa.gov/jira/secure/useravatar?avatarId=10142" alt="jon.brodziak" /></span></span>
+        <span class="tinylink">        <span class="user-hover" rel="jon.brodziak" id="user_cf_jon.brodziak">jon.brodziak</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient Org.:</b></td>
+                <td id="customfield_10506-13637076-value" class="value" bgcolor="#ffffff" width="80%">    PIFSC
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient Name:</b></td>
+                <td id="customfield_17590-13637076-value" class="value" bgcolor="#ffffff" width="80%">      Jon Brodziak
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient Email Address:</b></td>
+                <td id="customfield_15591-13637076-value" class="value" bgcolor="#ffffff" width="80%">      <a href='mailto:jon.brodziak@noaa.gov'>jon.brodziak@noaa.gov</a>
+  </td>
+            </tr>
+                                                                                                                                                                    <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Data Set List:</b></td>
+                <td id="customfield_11711-13637076-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11711-field">
+        							<span>Hawaii Marine Recreational Fishing Data</span>			            </div>
+</td>
+            </tr>
+                                                                                                                                                                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Schedule as Repeat Request?:</b></td>
+                <td id="customfield_10851-13637076-value" class="value" bgcolor="#ffffff" width="80%">    not planned
+</td>
+            </tr>
+                                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Data Access Constraints:</b></td>
+                <td id="customfield_10522-13637076-value" class="value" bgcolor="#ffffff" width="80%">      <p>any confidential data to be sent through appropriate methods</p>
+  </td>
+            </tr>
+                                                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Manager:</b></td>
+                <td id="customfield_12191-13637076-value" class="value" bgcolor="#ffffff" width="80%">            <span class="aui-avatar aui-avatar-small"><span class="aui-avatar-inner"><img src="https://apps-st.fisheries.noaa.gov/jira/secure/useravatar?avatarId=10142" alt="ashley.tomita" /></span></span>
+        <span class="tinylink">        <span class="user-hover" rel="ashley.tomita" id="user_cf_ashley.tomita">ashley.tomita</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Developer1:</b></td>
+                <td id="customfield_10520-13637076-value" class="value" bgcolor="#ffffff" width="80%">            <span class="aui-avatar aui-avatar-small"><span class="aui-avatar-inner"><img src="https://apps-st.fisheries.noaa.gov/jira/secure/useravatar?avatarId=10142" alt="hongguang.ma" /></span></span>
+        <span class="tinylink">        <span class="user-hover" rel="hongguang.ma" id="user_cf_hongguang.ma">hongguang.ma</span></span>
+    </td>
+            </tr>
+                                                    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p> Collect annual striped marlin landed catch biomass for US Hawaii recreational handline and troll fishery in WCPFC convention area north of equator for the years, 2020-2024.  We need an annual total catch biomass for HMRFS in kilograms for striped marlin by year.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-8564211"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="ashley.tomita" id="word_commented_ashley.tomita" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=ashley.tomita">ashley.tomita</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">24/Feb/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8564211"><td bgcolor="#ffffff">
+            <p>Hi Dr. Ma,</p>
+
+<p>I'm not sure where this should go, so please let me know if I need to direct it elsewhere.</p>
+
+<p>Thank you!<br/>
+-ashley</p>
+
+<p>Edit: sorry this is now a day later... Jira was not correctly assigning the tickets...</p>
+        </td></tr>
+                <tr id="comment-header-8564631"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="hongguang.ma" id="word_commented_hongguang.ma" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=hongguang.ma">hongguang.ma</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">26/Feb/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8564631"><td bgcolor="#ffffff">
+            <p>Hi Ashely and Jon,</p>
+
+<p>   I will take a look at the striped marlin catch estimates from HMRFS in 2020-2024.</p>
+
+<p>Hongguang</p>
+        </td></tr>
+                <tr id="comment-header-8564820"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="hongguang.ma" id="word_commented_hongguang.ma" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=hongguang.ma">hongguang.ma</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">26/Feb/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8564820"><td bgcolor="#ffffff">
+            <p>Hi Jon,</p>
+
+<p>   The striped marlin catch estimates from HMRFS can be queried from the following link. I have set a Google meet to show how to get the catch estimates in 2020-2024.         ~Hongguang</p>
+
+<p><a href="https://www.fisheries.noaa.gov/data-tools/recreational-fisheries-statistics-queries" class="external-link" target="_blank" rel="nofollow noopener">https://www.fisheries.noaa.gov/data-tools/recreational-fisheries-statistics-queries</a></p>
+        </td></tr>
+                <tr id="comment-header-8564863"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="hongguang.ma" id="word_commented_hongguang.ma" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=hongguang.ma">hongguang.ma</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">26/Feb/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8564863"><td bgcolor="#ffffff">
+            <p>Hi Ashely,</p>
+
+<p>   I just showed Jon how to get the non-commercial catch estimates for striped marlin from HMRFS. You may close the ticket now. </p>
+        </td></tr>
+            </table>
+Generated at Wed Mar 05 01:46:21 UTC 2025 by jon.brodziak using Jira 9.12.16#9120016-sha1:6bee0863f3e6dbb91e4be2d992a3b6761c21c9e0.
+
+</body>
+</html>

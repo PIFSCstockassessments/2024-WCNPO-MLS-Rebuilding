@@ -1,0 +1,7 @@
+{
+    "installOptions": {
+        "installFromRepository": true,
+        "libraryPath": "C:/Users/jon.brodziak/R-4.4.2/library",
+        "installDependencies": true
+    }
+}
