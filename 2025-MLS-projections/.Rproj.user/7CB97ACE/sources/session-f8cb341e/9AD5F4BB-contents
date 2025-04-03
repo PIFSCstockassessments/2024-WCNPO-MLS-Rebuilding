@@ -1,0 +1,104 @@
+---
+title: "Law of Iterated Expectations"
+author: "Jon Brodziak"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+**Goal**: To explain the "law of iterated expectations."
+
+**Problem**: The law of iterated expectations is often a bit confusing because it involves conditional expectations and can seem complex at first glance.
+
+**Solution**: The **law of iterated expectations** is a fundamental result in probability theory that states:
+
+\[
+E[E[Y|X]] = E[Y]
+\]
+
+In simple terms, it says that the expectation of the conditional expectation of a random variable \(Y\), given another random variable \(X\), is equal to the expectation of \(Y\) itself. This law is useful in breaking down complex problems into simpler steps and helps when dealing with nested expectations. 
+
+### Intuition:
+1. First, we take the expectation of \(Y\) given \(X\), which gives us a conditional expectation based on the information from \(X\).
+2. Then, we take the expectation of that conditional expectation (averaging over all possible values of \(X\)).
+3. The result is just the unconditional expectation of \(Y\), showing that the additional step of conditioning on \(X\) doesn’t change the overall expectation of \(Y\). 
+
+This law is often applied in econometrics, statistics, and other fields involving conditional probability.
+
+**Goal**: To show the dependence of the expectation operators in the law of iterated expectations.
+
+**Problem**: The expectation operators in the law of iterated expectations are nested, and it's important to understand the relationship between them.
+
+**Solution**: The law of iterated expectations can be expressed as:
+
+\[
+E[E[Y|X]] = E[Y]
+\]
+
+We can break down the dependence of the expectation operators as follows:
+
+1. **First Expectation (Inner Expectation)**: \(E[Y|X]\) represents the **conditional expectation** of \(Y\), given the value of \(X\). This means we are calculating the expected value of \(Y\) considering the information about \(X\). The expectation here depends on \(X\), which is the conditioning variable.
+
+2. **Second Expectation (Outer Expectation)**: \(E[E[Y|X]]\) represents the **expectation** of the conditional expectation \(E[Y|X]\). This outer expectation averages over all possible values of \(X\), effectively “removing” the dependence on \(X\).
+
+   - The outer expectation is independent of \(X\) because it is an unconditional expectation (i.e., it is not conditioned on any other variables).
+
+### Understanding the Dependence:
+
+- The first expectation \(E[Y|X]\) is conditional on \(X\), so it depends on the distribution of \(X\).
+- The second expectation \(E[E[Y|X]]\) averages the results of the first expectation over all possible values of \(X\), eliminating the dependence on \(X\) and returning the unconditional expectation of \(Y\).
+
+The equation shows that, after conditioning on \(X\) and taking the expectation, the outer expectation brings us back to the original (unconditional) expectation of \(Y\).
+
+**Goal**: To show the dependence of the expectation operators using subscripts for "E" in the equation for the law of iterated expectations.
+
+**Problem**: The law of iterated expectations involves nested expectations, and showing this using subscripts helps clarify how each expectation depends on different variables.
+
+**Solution**: The law of iterated expectations can be written with subscripts to show the dependence explicitly:
+
+\[
+E_X[E_Y[Y|X]] = E[Y]
+\]
+
+Where:
+
+- \(E_X\) represents the **expectation** over the variable \(X\) (the outer expectation).
+- \(E_Y[Y|X]\) represents the **conditional expectation** of \(Y\) given \(X\) (the inner expectation, where \(Y\) is conditioned on \(X\)).
+
+In this expression:
+
+1. The inner expectation \(E_Y[Y|X]\) is the expected value of \(Y\) given \(X\). This expectation depends on \(X\) because it is conditioned on \(X\).
+   
+2. The outer expectation \(E_X[\cdot]\) is the expectation of the conditional expectation \(E_Y[Y|X]\), averaged over all possible values of \(X\). The outer expectation eliminates the dependence on \(X\), leading back to the unconditional expectation \(E[Y]\).
+
+This notation makes the dependence of the expectations on the variables explicit, indicating the conditioning and the averaging processes involved.
+
+**Goal**: To further show the dependence of the expectation operator on the right-hand side of the equation for the law of iterated expectations.
+
+**Problem**: The law of iterated expectations typically has \( E[Y] \) on the right-hand side, but we can express this more explicitly to demonstrate the underlying dependence.
+
+**Solution**: To make the dependence explicit on the right-hand side, we need to show that the expectation \( E[Y] \) is indeed an unconditional expectation over the appropriate probability space.
+
+We start with the law of iterated expectations:
+
+\[
+E_X[E_Y[Y|X]] = E[Y]
+\]
+
+Now, we can express the right-hand side as a more explicit expectation:
+
+\[
+E_Y[Y] = \int y f_Y(y) \, dy
+\]
+
+where \( f_Y(y) \) is the probability density function of \( Y \). This shows that \( E[Y] \) is the expectation of \( Y \) taken over its own distribution, which does not depend on any other variables.
+
+### Explanation:
+
+1. **\( E_X[E_Y[Y|X]] \)**: Here, \( E_Y[Y|X] \) is the expectation of \( Y \) conditioned on \( X \), and \( E_X[\cdot] \) is the expectation over the distribution of \( X \).
+
+2. **\( E[Y] \)**: On the right-hand side, \( E[Y] \) is simply the unconditional expectation of \( Y \). This expectation does not depend on \( X \) because it is averaged over the entire distribution of \( Y \) itself, without conditioning on any other variable.
+
+By writing out the expectation explicitly on the right-hand side, we emphasize that the law of iterated expectations is essentially saying that after first conditioning on \( X \) and averaging over \( X \), you arrive back at the unconditional expectation of \( Y \), which is obtained by averaging over the distribution of \( Y \).
