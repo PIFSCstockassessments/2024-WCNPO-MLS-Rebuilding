@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#PICDR-113528] Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://apps-st.fisheries.noaa.gov/jira/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [PICDR-113528]&nbsp;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528">Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports</a>
+            <span class="subText">
+               Created: 22/Feb/25                   &nbsp;Updated: 06/Mar/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">In User Acceptance</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://apps-st.fisheries.noaa.gov/jira/secure/BrowseProject.jspa?id=11180">PIFSC Data Requests</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Data Request
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Major
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="jon.brodziak" id="word_reporter_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="dios.gonzales" id="word_assignee_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-13637078-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            None
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://apps-st.fisheries.noaa.gov/jira/images/icons/attach/file.gif" height="16" width="16" border="0" alt="File" role="presentation">
+                    PICDR-113528.sql &nbsp;&nbsp;&nbsp;
+                                    <img src="https://apps-st.fisheries.noaa.gov/jira/images/icons/attach/file.gif" height="16" width="16" border="0" alt="File" role="presentation">
+                    PICDR-113528 Striped Marlin Hawaii Commercial Catch.csv &nbsp;&nbsp;&nbsp;
+                                    <img src="https://apps-st.fisheries.noaa.gov/jira/images/icons/attach/file.gif" height="16" width="16" border="0" alt="File" role="presentation">
+                    PICDR-113528 Striped Marlin Hawaii Commercial Dealer.csv &nbsp;&nbsp;&nbsp;
+                                    <img src="https://apps-st.fisheries.noaa.gov/jira/images/icons/attach/file.gif" height="16" width="16" border="0" alt="File" role="presentation">
+                    PICDR-113528 Striped Marlin Hawaii Commercial Dealer Non-longline.csv &nbsp;&nbsp;&nbsp;
+                                    <img src="https://apps-st.fisheries.noaa.gov/jira/images/icons/attach/file.gif" height="16" width="16" border="0" alt="File" role="presentation">
+                    PICDR-113528 Striped Marlin Non-longline Dealer and Catch.csv &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>Issue Links:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                                                <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113525">
+                     PICDR-113525                 </a>
+            </td>
+            <td>
+                Request for WCNPO striped marlin catc...
+            </td>
+            <td>
+                In QC Verification
+            </td>
+        </tr>
+            <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113526">
+                     PICDR-113526                 </a>
+            </td>
+            <td>
+                Request for WCNPO striped marlin catc...
+            </td>
+            <td>
+                In User Acceptance
+            </td>
+        </tr>
+                                        </table>
+            </td>
+        </tr>
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>DR Last Action:</b></td>
+                <td id="customfield_10515-13637078-value" class="value" bgcolor="#ffffff" width="80%">    Request Created
+</td>
+            </tr>
+                                            <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Purpose:</b></td>
+                <td id="customfield_10505-13637078-value" class="value" bgcolor="#ffffff" width="80%">      Purpose is to gather best available US catch information for conducting new WCNPO striped marlin stock projections for WCPFC and ISC.
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Date of Request:</b></td>
+                <td id="customfield_10848-13637078-value" class="value" bgcolor="#ffffff" width="80%">          <span title="21/Feb/25"><time datetime="2025-02-21">21/Feb/25</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Date Needed by:</b></td>
+                <td id="customfield_10833-13637078-value" class="value" bgcolor="#ffffff" width="80%">          <span title="07/Mar/25"><time datetime="2025-03-07">07/Mar/25</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient:</b></td>
+                <td id="customfield_10518-13637078-value" class="value" bgcolor="#ffffff" width="80%">            <span class="aui-avatar aui-avatar-small"><span class="aui-avatar-inner"><img src="https://apps-st.fisheries.noaa.gov/jira/secure/useravatar?avatarId=10142" alt="jon.brodziak" /></span></span>
+        <span class="tinylink">        <span class="user-hover" rel="jon.brodziak" id="user_cf_jon.brodziak">jon.brodziak</span></span>
+    </td>
+            </tr>
+                                            <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient Name:</b></td>
+                <td id="customfield_17590-13637078-value" class="value" bgcolor="#ffffff" width="80%">      Jon Brodziak
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Recipient Email Address:</b></td>
+                <td id="customfield_15591-13637078-value" class="value" bgcolor="#ffffff" width="80%">      <a href='mailto:jon.brodziak@noaa.gov'>jon.brodziak@noaa.gov</a>
+  </td>
+            </tr>
+                                                                                                                                                                    <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Data Set List:</b></td>
+                <td id="customfield_11711-13637078-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11711-field">
+        							<span>Hawaii DAR Commercial Catch</span>			            </div>
+</td>
+            </tr>
+                                                                                                                                                                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Schedule as Repeat Request?:</b></td>
+                <td id="customfield_10851-13637078-value" class="value" bgcolor="#ffffff" width="80%">    not planned
+</td>
+            </tr>
+                                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Data Access Constraints:</b></td>
+                <td id="customfield_10522-13637078-value" class="value" bgcolor="#ffffff" width="80%">      <p>confidential data should be sent through appropriate methods</p>
+  </td>
+            </tr>
+                                                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Manager:</b></td>
+                <td id="customfield_12191-13637078-value" class="value" bgcolor="#ffffff" width="80%">            <span class="aui-avatar aui-avatar-small"><span class="aui-avatar-inner"><img src="https://apps-st.fisheries.noaa.gov/jira/secure/useravatar?avatarId=10142" alt="ashley.tomita" /></span></span>
+        <span class="tinylink">        <span class="user-hover" rel="ashley.tomita" id="user_cf_ashley.tomita">ashley.tomita</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Developer1:</b></td>
+                <td id="customfield_10520-13637078-value" class="value" bgcolor="#ffffff" width="80%">            <span class="aui-avatar aui-avatar-small"><span class="aui-avatar-inner"><img src="https://apps-st.fisheries.noaa.gov/jira/secure/useravatar?avatarId=13535" alt="dios.gonzales" /></span></span>
+        <span class="tinylink">        <span class="user-hover" rel="dios.gonzales" id="user_cf_dios.gonzales">dios.gonzales</span></span>
+    </td>
+            </tr>
+                                                    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>Collect annual striped marlin landed catch biomass from HDAR commercial catch data reports for the years, 2020-2024, noting that 2024 data may not be complete.  We need an annual total catch biomass in kilograms for striped marlin by year.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-8565726"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dios.gonzales" id="word_commented_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">03/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8565726"><td bgcolor="#ffffff">
+            <p>Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,</p>
+
+<p>I’ve prepared two summaries for your data request. I wasn't entirely sure what you meant by 'commercial catch,' so I provided both options. Around 2002, HDAR stopped collecting longline data from fishers’ catch records, and the federal longline program took over from that point. However, the federal program did not collect weight data directly, instead using weight estimates from Hawaii's commercial purchase records to supplement the longline data.</p>
+
+<p>The summary labeled 'Hawaii Commercial Catch' includes catch data from fishers, excluding longline data. The summary labeled 'Hawaii Commercial Dealer' contains data on sales from dealers, including longline data.</p>
+        </td></tr>
+                <tr id="comment-header-8565797"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dios.gonzales" id="word_commented_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">03/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8565797"><td bgcolor="#ffffff">
+            <p>Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,</p>
+
+<p>I've updated the Hawaii Commercial Dealer summary to include <em>est_kgs</em>, which represents the estimated total whole weight of the fish after processing methods such as 'Gilled and Gutted' or 'Headed and Gutted', etc. I also used a more current data.</p>
+        </td></tr>
+                <tr id="comment-header-8565840"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="jon.brodziak" id="word_commented_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">04/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8565840"><td bgcolor="#ffffff">
+            <p>Hi Dios,</p>
+
+<p>The striped marlin catch weight amounts in "<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> Striped Marlin<br/>
+Hawaii Commercial Dealer.csv"<br/>
+are a lot higher than the reported longline catches I received from Chris<br/>
+(extracted from the file LLDS.LLDS_DETAIL_20250224HI).</p>
+
+<p>It looks like the query uses the statement "round(sum(c.pounds_caught *<br/>
+2.20462), 0) as catch_kgs"<br/>
+which multiplies the catch pounds by 2.20462 when the c.pounds_caught need<br/>
+to be divided by the<br/>
+kilograms to pounds conversion factor.</p>
+
+<p>Jon</p>
+
+<p>On Mon, Mar 3, 2025 at 1:09 PM dios.gonzales (Jira) &lt;EDMjira.picdr@noaa.gov&gt;<br/>
+wrote:</p>
+
+<p>&gt; There is <b>1 comment</b>.<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; PIFSC Data Requests &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR</a>&gt;<br/>
+&gt; / [image:<br/>
+&gt; cid:jira-generated-image-avatar-d3cf63d6-89fa-4635-a9eb-b216723bf464]<br/>
+&gt; <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt; In<br/>
+&gt; User Acceptance<br/>
+&gt; Request for WCNPO striped marlin catch biomass from HDAR commercial catch<br/>
+&gt; data reports<br/>
+&gt;<br/>
+&gt; View issue &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt;<br/>
+&gt;   ·   Add comment<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment</a>&gt;<br/>
+&gt;<br/>
+&gt; 1 comment<br/>
+&gt;<br/>
+&gt; [image:<br/>
+&gt; cid:jira-generated-image-avatar-4a9c23a9-d6e3-456a-8c71-60dee7cb3362]<br/>
+&gt; <b>dios.gonzales</b> on 03/Mar/25 1:05 PM<br/>
+&gt;<br/>
+&gt; Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,<br/>
+&gt;<br/>
+&gt; I’ve prepared two summaries for your data request. I wasn't entirely sure<br/>
+&gt; what you meant by 'commercial catch,' so I provided both options. Around<br/>
+&gt; 1995 2002 , HDAR stopped collecting longline data from fishers’ catch<br/>
+&gt; records, and the federal longline program took over from that point.<br/>
+&gt; However, the federal program did not collect weight data directly, instead<br/>
+&gt; using weight estimates from Hawaii's commercial purchase records to<br/>
+&gt; supplement the longline data.<br/>
+&gt;<br/>
+&gt; The summary labeled 'Hawaii Commercial Catch' includes catch data from<br/>
+&gt; fishers, excluding longline data. The summary labeled 'Hawaii Commercial<br/>
+&gt; Dealer' contains data on sales from dealers, including longline data.<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; This message was sent by Atlassian Jira (v9.12.16#9120016-sha1:6bee086) [image:<br/>
+&gt; Atlassian logo]<br/>
+&gt; If image attachments aren't displayed, see this article<br/>
+&gt; &lt;<a href="https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails" class="external-link" target="_blank" rel="nofollow noopener">https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails</a>&gt;<br/>
+&gt; .<br/>
+&gt;</p>
+
+
+<p>&#8211; </p>
+
+<p>------------------------------</p>
+
+<p>Jon Brodziak</p>
+
+<p>Mathematical Statistician</p>
+
+<p>Pacific Islands Fisheries Science Center</p>
+
+<p>NOAA Fisheries | U.S. Department of Commerce</p>
+
+<p>Office: (808) 725-5617</p>
+
+<p>www.fisheries.noaa.gov | PIFSC Stock Assessment<br/>
+&lt;<a href="https://pifscstockassessments.github.io/" class="external-link" target="_blank" rel="nofollow noopener">https://pifscstockassessments.github.io/</a>&gt;</p>
+        </td></tr>
+                <tr id="comment-header-8565841"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dios.gonzales" id="word_commented_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">04/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8565841"><td bgcolor="#ffffff">
+            <p>Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,</p>
+
+<p>Jon, you're correct. It should have been divided not multiplied. My bad. I'll sent you summaries with the right conversion.</p>
+        </td></tr>
+                <tr id="comment-header-8565842"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="jon.brodziak" id="word_commented_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">04/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8565842"><td bgcolor="#ffffff">
+            <p>No problem, thank you!</p>
+
+<p>On Mon, Mar 3, 2025 at 2:41 PM dios.gonzales (Jira) &lt;EDMjira.picdr@noaa.gov&gt;<br/>
+wrote:</p>
+
+<p>&gt; There is <b>1 comment</b>.<br/>
+&gt; * You've been mentioned in a comment. *<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; PIFSC Data Requests &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR</a>&gt;<br/>
+&gt; / [image:<br/>
+&gt; cid:jira-generated-image-avatar-56ed2744-0853-4794-a515-b4ba02041e30]<br/>
+&gt; <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt; In<br/>
+&gt; User Acceptance<br/>
+&gt; Request for WCNPO striped marlin catch biomass from HDAR commercial catch<br/>
+&gt; data reports<br/>
+&gt;<br/>
+&gt; View issue &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt;<br/>
+&gt;   ·   Add comment<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment</a>&gt;<br/>
+&gt;<br/>
+&gt; 1 comment<br/>
+&gt;<br/>
+&gt; [image:<br/>
+&gt; cid:jira-generated-image-avatar-d8ad55a4-eb1d-4383-9fd8-1bc048737d5e]<br/>
+&gt; <b>dios.gonzales</b> on 03/Mar/25 2:40 PM<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; Hi jon.brodziak<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak</a>&gt;<br/>
+&gt; ,<br/>
+&gt;<br/>
+&gt; Jon, you're correct. It should have been divided not multiplied. My bad.<br/>
+&gt; I'll sent you summaries with the right conversion.<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; This message was sent by Atlassian Jira (v9.12.16#9120016-sha1:6bee086) [image:<br/>
+&gt; Atlassian logo]<br/>
+&gt; If image attachments aren't displayed, see this article<br/>
+&gt; &lt;<a href="https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails" class="external-link" target="_blank" rel="nofollow noopener">https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails</a>&gt;<br/>
+&gt; .<br/>
+&gt;</p>
+
+
+<p>&#8211; </p>
+
+<p>------------------------------</p>
+
+<p>Jon Brodziak</p>
+
+<p>Mathematical Statistician</p>
+
+<p>Pacific Islands Fisheries Science Center</p>
+
+<p>NOAA Fisheries | U.S. Department of Commerce</p>
+
+<p>Office: (808) 725-5617</p>
+
+<p>www.fisheries.noaa.gov | PIFSC Stock Assessment<br/>
+&lt;<a href="https://pifscstockassessments.github.io/" class="external-link" target="_blank" rel="nofollow noopener">https://pifscstockassessments.github.io/</a>&gt;</p>
+        </td></tr>
+                <tr id="comment-header-8570061"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dios.gonzales" id="word_commented_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">04/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8570061"><td bgcolor="#ffffff">
+            <p>Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,</p>
+
+<p>I've attached new Striped Marlin summaries, now updated with the correct conversion from pounds to kilograms.</p>
+        </td></tr>
+                <tr id="comment-header-8570227"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="jon.brodziak" id="word_commented_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">05/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8570227"><td bgcolor="#ffffff">
+            <p>Hi Dios,<br/>
+Thanks for the summary of the striped marlin catch weight data.<br/>
+Can we also extract the total number of striped marlin by year<br/>
+and source (Hawaii dealer data or HDAR non-longline catch reports)?<br/>
+This will allow for a comparison with the Hawaii longline detail catch<br/>
+mean weight data and the Hawaii MRIP data. That will complete this<br/>
+striped marlin Jira 113528 data request.<br/>
+Thanks,<br/>
+Jon</p>
+
+
+<p>On Tue, Mar 4, 2025 at 8:24 AM dios.gonzales (Jira) &lt;EDMjira.picdr@noaa.gov&gt;<br/>
+wrote:</p>
+
+<p>&gt; There is <b>1 comment</b>.<br/>
+&gt; * You've been mentioned in a comment. *<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; PIFSC Data Requests &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR</a>&gt;<br/>
+&gt; / [image:<br/>
+&gt; cid:jira-generated-image-avatar-a9eff2e2-a4e1-41e9-b446-764eb958906d]<br/>
+&gt; <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt; In<br/>
+&gt; User Acceptance<br/>
+&gt; Request for WCNPO striped marlin catch biomass from HDAR commercial catch<br/>
+&gt; data reports<br/>
+&gt;<br/>
+&gt; View issue &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt;<br/>
+&gt;   ·   Add comment<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment</a>&gt;<br/>
+&gt;<br/>
+&gt; 1 comment<br/>
+&gt;<br/>
+&gt; [image:<br/>
+&gt; cid:jira-generated-image-avatar-7a3891fe-3c98-410c-94bb-4e8269342f45]<br/>
+&gt; <b>dios.gonzales</b> on 04/Mar/25 8:23 AM<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; Hi jon.brodziak<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak</a>&gt;<br/>
+&gt; ,<br/>
+&gt;<br/>
+&gt; I've attached new Striped Marlin summaries, now updated with the correct<br/>
+&gt; conversion from pounds to kilograms.<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; This message was sent by Atlassian Jira (v9.12.16#9120016-sha1:6bee086) [image:<br/>
+&gt; Atlassian logo]<br/>
+&gt; If image attachments aren't displayed, see this article<br/>
+&gt; &lt;<a href="https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails" class="external-link" target="_blank" rel="nofollow noopener">https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails</a>&gt;<br/>
+&gt; .<br/>
+&gt;</p>
+
+
+<p>&#8211; </p>
+
+<p>------------------------------</p>
+
+<p>Jon Brodziak</p>
+
+<p>Mathematical Statistician</p>
+
+<p>Pacific Islands Fisheries Science Center</p>
+
+<p>NOAA Fisheries | U.S. Department of Commerce</p>
+
+<p>Office: (808) 725-5617</p>
+
+<p>www.fisheries.noaa.gov | PIFSC Stock Assessment<br/>
+&lt;<a href="https://pifscstockassessments.github.io/" class="external-link" target="_blank" rel="nofollow noopener">https://pifscstockassessments.github.io/</a>&gt;</p>
+        </td></tr>
+                <tr id="comment-header-8570547"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dios.gonzales" id="word_commented_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">05/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8570547"><td bgcolor="#ffffff">
+            <p>Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,</p>
+
+<p>I uploaded the non-longline summary for Striped Marlin.</p>
+        </td></tr>
+                <tr id="comment-header-8570604"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="jon.brodziak" id="word_commented_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">05/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8570604"><td bgcolor="#ffffff">
+            <p>To confirm, this summary shows the non-longline caught dealer reported<br/>
+sales and estimated catch, which differs from the HDAR catch reports<br/>
+excluding longline data.</p>
+
+<p>On Wed, Mar 5, 2025 at 8:55 AM dios.gonzales (Jira) &lt;EDMjira.picdr@noaa.gov&gt;<br/>
+wrote:</p>
+
+<p>&gt; There is <b>1 update</b>, <b>1 comment</b>.<br/>
+&gt; * You've been mentioned in a comment. *<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; PIFSC Data Requests &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR</a>&gt;<br/>
+&gt; / [image:<br/>
+&gt; cid:jira-generated-image-avatar-e026c644-1565-4913-8d06-e7d4eb5abea5]<br/>
+&gt; <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt; In<br/>
+&gt; User Acceptance<br/>
+&gt; Request for WCNPO striped marlin catch biomass from HDAR commercial catch<br/>
+&gt; data reports<br/>
+&gt;<br/>
+&gt; View issue &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt;<br/>
+&gt;   ·   Add comment<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment</a>&gt;<br/>
+&gt;<br/>
+&gt; 1 update<br/>
+&gt;<br/>
+&gt; [image:<br/>
+&gt; cid:jira-generated-image-avatar-980bcff6-5e74-4635-828a-c0871f659db1] Changes<br/>
+&gt; by <b>dios.gonzales</b> on 05/Mar/25 8:52 AM<br/>
+&gt;<br/>
+&gt; Attachment: <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> Striped Marlin Hawaii Commercial Dealer<br/>
+&gt; Non-longline.csv<br/>
+&gt;<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; 1 comment<br/>
+&gt;<br/>
+&gt; [image:<br/>
+&gt; cid:jira-generated-image-avatar-980bcff6-5e74-4635-828a-c0871f659db1]<br/>
+&gt; <b>dios.gonzales</b> on 05/Mar/25 8:54 AM<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; Hi jon.brodziak<br/>
+&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak</a>&gt;<br/>
+&gt; ,<br/>
+&gt;<br/>
+&gt; I uploaded the non-longline summary for Striped Marlin.<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; This message was sent by Atlassian Jira (v9.12.16#9120016-sha1:6bee086) [image:<br/>
+&gt; Atlassian logo]<br/>
+&gt; If image attachments aren't displayed, see this article<br/>
+&gt; &lt;<a href="https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails" class="external-link" target="_blank" rel="nofollow noopener">https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails</a>&gt;<br/>
+&gt; .<br/>
+&gt;</p>
+
+
+<p>&#8211; </p>
+
+<p>------------------------------</p>
+
+<p>Jon Brodziak</p>
+
+<p>Mathematical Statistician</p>
+
+<p>Pacific Islands Fisheries Science Center</p>
+
+<p>NOAA Fisheries | U.S. Department of Commerce</p>
+
+<p>Office: (808) 725-5617</p>
+
+<p>www.fisheries.noaa.gov | PIFSC Stock Assessment<br/>
+&lt;<a href="https://pifscstockassessments.github.io/" class="external-link" target="_blank" rel="nofollow noopener">https://pifscstockassessments.github.io/</a>&gt;</p>
+        </td></tr>
+                <tr id="comment-header-8570608"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="jon.brodziak" id="word_commented_jon.brodziak" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak">jon.brodziak</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">05/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8570608"><td bgcolor="#ffffff">
+            <p>Can we get include striped marlin catch numbers for the same queries of<br/>
+dealer<br/>
+and HDAR catch weight data?</p>
+
+<p>On Wed, Mar 5, 2025 at 10:14 AM Jon Brodziak - NOAA Federal &lt;<br/>
+jon.brodziak@noaa.gov&gt; wrote:</p>
+
+<p>&gt; To confirm, this summary shows the non-longline caught dealer reported<br/>
+&gt; sales and estimated catch, which differs from the HDAR catch reports<br/>
+&gt; excluding longline data.<br/>
+&gt;<br/>
+&gt; On Wed, Mar 5, 2025 at 8:55 AM dios.gonzales (Jira) &lt;<br/>
+&gt; EDMjira.picdr@noaa.gov&gt; wrote:<br/>
+&gt;<br/>
+&gt;&gt; There is <b>1 update</b>, <b>1 comment</b>.<br/>
+&gt;&gt; * You've been mentioned in a comment. *<br/>
+&gt;&gt;<br/>
+&gt;&gt;<br/>
+&gt;&gt; PIFSC Data Requests<br/>
+&gt;&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR</a>&gt; / [image:<br/>
+&gt;&gt; cid:jira-generated-image-avatar-e026c644-1565-4913-8d06-e7d4eb5abea5]<br/>
+&gt;&gt; <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a><br/>
+&gt;&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt; In User<br/>
+&gt;&gt; Acceptance<br/>
+&gt;&gt; Request for WCNPO striped marlin catch biomass from HDAR commercial catch<br/>
+&gt;&gt; data reports<br/>
+&gt;&gt;<br/>
+&gt;&gt; View issue &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528</a>&gt;<br/>
+&gt;&gt;   ·   Add comment<br/>
+&gt;&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528#add-comment</a>&gt;<br/>
+&gt;&gt;<br/>
+&gt;&gt; 1 update<br/>
+&gt;&gt;<br/>
+&gt;&gt; [image:<br/>
+&gt;&gt; cid:jira-generated-image-avatar-980bcff6-5e74-4635-828a-c0871f659db1] Changes<br/>
+&gt;&gt; by <b>dios.gonzales</b> on 05/Mar/25 8:52 AM<br/>
+&gt;&gt;<br/>
+&gt;&gt; Attachment: <a href="https://apps-st.fisheries.noaa.gov/jira/browse/PICDR-113528" title="Request for WCNPO striped marlin catch biomass from HDAR commercial catch data reports" class="issue-link" data-issue-key="PICDR-113528">PICDR-113528</a> Striped Marlin Hawaii Commercial Dealer<br/>
+&gt;&gt; Non-longline.csv<br/>
+&gt;&gt;<br/>
+&gt;&gt;<br/>
+&gt;&gt;<br/>
+&gt;&gt; 1 comment<br/>
+&gt;&gt;<br/>
+&gt;&gt; [image:<br/>
+&gt;&gt; cid:jira-generated-image-avatar-980bcff6-5e74-4635-828a-c0871f659db1]<br/>
+&gt;&gt; <b>dios.gonzales</b> on 05/Mar/25 8:54 AM<br/>
+&gt;&gt;<br/>
+&gt;&gt;<br/>
+&gt;&gt; Hi jon.brodziak<br/>
+&gt;&gt; &lt;<a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="external-link" rel="nofollow">https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak</a>&gt;<br/>
+&gt;&gt; ,<br/>
+&gt;&gt;<br/>
+&gt;&gt; I uploaded the non-longline summary for Striped Marlin.<br/>
+&gt;&gt;<br/>
+&gt;&gt;<br/>
+&gt;&gt; This message was sent by Atlassian Jira (v9.12.16#9120016-sha1:6bee086) [image:<br/>
+&gt;&gt; Atlassian logo]<br/>
+&gt;&gt; If image attachments aren't displayed, see this article<br/>
+&gt;&gt; &lt;<a href="https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails" class="external-link" target="_blank" rel="nofollow noopener">https://confluence.atlassian.com/display/JIRAKB/Image+attachments+are+not+displayed+in+emails</a>&gt;<br/>
+&gt;&gt; .<br/>
+&gt;&gt;<br/>
+&gt;<br/>
+&gt;<br/>
+&gt; &#8211;<br/>
+&gt;<br/>
+&gt; ------------------------------<br/>
+&gt;<br/>
+&gt; Jon Brodziak<br/>
+&gt;<br/>
+&gt; Mathematical Statistician<br/>
+&gt;<br/>
+&gt; Pacific Islands Fisheries Science Center<br/>
+&gt;<br/>
+&gt; NOAA Fisheries | U.S. Department of Commerce<br/>
+&gt;<br/>
+&gt; Office: (808) 725-5617<br/>
+&gt;<br/>
+&gt; www.fisheries.noaa.gov | PIFSC Stock Assessment<br/>
+&gt; &lt;<a href="https://pifscstockassessments.github.io/" class="external-link" target="_blank" rel="nofollow noopener">https://pifscstockassessments.github.io/</a>&gt;<br/>
+&gt;<br/>
+&gt;<br/>
+&gt;</p>
+
+<p>&#8211; </p>
+
+<p>------------------------------</p>
+
+<p>Jon Brodziak</p>
+
+<p>Mathematical Statistician</p>
+
+<p>Pacific Islands Fisheries Science Center</p>
+
+<p>NOAA Fisheries | U.S. Department of Commerce</p>
+
+<p>Office: (808) 725-5617</p>
+
+<p>www.fisheries.noaa.gov | PIFSC Stock Assessment<br/>
+&lt;<a href="https://pifscstockassessments.github.io/" class="external-link" target="_blank" rel="nofollow noopener">https://pifscstockassessments.github.io/</a>&gt;</p>
+        </td></tr>
+                <tr id="comment-header-8570685"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dios.gonzales" id="word_commented_dios.gonzales" href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=dios.gonzales">dios.gonzales</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">06/Mar/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-8570685"><td bgcolor="#ffffff">
+            <p>Hi <a href="https://apps-st.fisheries.noaa.gov/jira/secure/ViewProfile.jspa?name=jon.brodziak" class="user-hover" rel="jon.brodziak">jon.brodziak</a>,</p>
+
+<p>I combined the commercial dealer data with the commercial catch data into a single summary. However, I’m unable to explain the large discrepancy between catch and sales for 2024. I’m currently investigating the issue and will keep you posted if I find anything unusual with the data.</p>
+        </td></tr>
+            </table>
+Generated at Thu Mar 06 23:26:36 UTC 2025 by jon.brodziak using Jira 9.12.16#9120016-sha1:6bee0863f3e6dbb91e4be2d992a3b6761c21c9e0.
+
+</body>
+</html>
