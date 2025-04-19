@@ -1,8 +1,9 @@
 # **2024 WCNPO MLS Rebuilding**
 
 ### **Purpose** 
-> This repository is a place to share information, data, and analytical work on the rebuilding plan  
-for the Striped Marlin stock in the Western and Central North Pacific Ocean in 2024
+> This repository stores information, data, and analytical work
+> on the 2024-2025 rebuilding plan analyses conducted by the ISC
+> for the Striped Marlin stock in the Western and Central North Pacific Ocean.
 
 ### **Folder Structure**
 > * The full rebuilding analysis results are in /2024-results
