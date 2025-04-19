@@ -345,7 +345,7 @@ FleetRemovals[,6] <- t(sapply(FleetGroupCatch2025_2027[,2], function(p) rep(p,1)
 FleetRemovals[,7] <- t(sapply(FleetGroupCatch2025_2027[,3], function(p) rep(p,1)))
 
 # Set FleetRemovals to be the vector proportion of catch biomass by fleet in YearAvg 
-# times the Phase 2 catch biomass during years 2028-2075, or [8:(NYears-3)]
+# times the Phase 2 catch biomass during years 2028-2031, or [8:(NYears-3)]
 FleetRemovals[,8:NYears] <- t(sapply(ProportionCatch, function(p) rep(p*TotalCatchPhase2,48)))
 
 # Do the same for Phase 3 catch during 2032-2034

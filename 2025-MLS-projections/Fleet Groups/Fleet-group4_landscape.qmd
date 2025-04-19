@@ -1,6 +1,4 @@
 ---
-title: "Fleet Group 4"
-subtitle: "\\LARGE Japanese Longline Quarter 3 - Area 1" 
 format:
   pdf:
     documentclass: article

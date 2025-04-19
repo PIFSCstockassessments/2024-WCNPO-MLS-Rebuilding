@@ -1,11 +1,8 @@
 ---
-title: "Fleet Group 5"
-subtitle: "\\LARGE Japanese Longline <br>Quarter 4 - Area 1"
 format:
   pdf:
     documentclass: article
-    geometry: portrait
-keep-md: false
+    geometry: landscape
 ---
 
 ```{mermaid}
