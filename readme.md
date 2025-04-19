@@ -6,7 +6,8 @@
 > for the Striped Marlin stock in the Western and Central North Pacific Ocean.
 
 ### **Folder Structure**
-> * The full rebuilding analysis results are in /2024-results
+> * The full 2024 rebuilding analysis results are in /2024-results
+> * The 2025 projection results under CMM 24-06 are in /2025-MLS-projections
 > * The SS3 base case 2023 stock assessment files are in /base
 > * The AGEPRO executable "agepro_MLS_rebuild.exe" is in /bin
 > * The AGEPRO bootstrap numbers-at-age files are in /Bootstrap-numbers-at-age
