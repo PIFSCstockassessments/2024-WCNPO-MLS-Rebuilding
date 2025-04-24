@@ -27,7 +27,7 @@
 ### **Contacts**
 > Points of contact: Jon Brodziak, Michelle Sculley  
 Email: Jon.Brodziak@NOAA.GOV, Michelle.Sculley@NOAA.GOV   
-[Link for the **2024-WCNPO-MLS-Rebuilding**  GitHub repository](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/)  
+[Link to the **2024-WCNPO-MLS-Rebuilding**  repository](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/)  
   
 #### **GitHub Disclaimer**
 
