@@ -312,12 +312,13 @@ Recruitment$alpha <- Recruitment$alpha*exp(-0.5*Recruitment$var)
 
 ## Set harvest strategy based on catch or F or both
 ## The Phased_template.inp is set up for a phased harvest strategy
-## The project initialization runs from 2021 to 2024 and sets F to be
-## the average annual F during 2018-2020
-## The CMM 2024 phase runs from 2025 to 2027 at a quota of Q = 2400 mt
-## The second phase runs from 2028 to 2031 at a quota of Q = 2100 mt
-## The third phase runs from 2032 to 2034 at a quota of Q = 2100 mt
-TotalCatchPhase1 <- 2400
+## The project initialization runs from 2021 to 2024 and sets population harvest
+## to the observed catch by fleet group during 2021-2024
+## The CMM 2024 phase runs from 2025 to 2027 at quotas of Q = (3225, 3225, 2400) mt
+## Catches read from file=scenario2-catch.csv
+## The second phase runs from 2028 to 2031 at a quota of Q = 2150 mt
+## The third phase runs from 2032 to 2034 at a quota of Q = 2150 mt
+
 TotalCatchPhase2 <- 2150
 TotalCatchPhase3 <- 2150
 

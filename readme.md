@@ -3,7 +3,7 @@
 ### **Purpose** 
 > This repository stores information, data, and analytical work
 > on the 2024-2025 rebuilding plan analyses conducted by the ISC
-> for the Striped Marlin stock in the Western and Central North Pacific Ocean.
+> for the Striped Marlin stock (MLS) in the Western and Central North Pacific Ocean.
 
 ### **Folder Structure**
 > * **/2024-results** contains the results of the 2024 rebuilding analysis 
@@ -16,8 +16,8 @@
 > * **/References** contains some background references
 > * **/Presentations** contains MLS rebuilding analysis presentations 
 > * **/Rscripts** contains key R scripts to extract data from assessment files 
-> * **_ISC_24_BILLWG-01_03.pdf_** is the ISC working paper
-       for the 2024 rebuilding analysis
+> * [**_ISC_24_BILLWG-01_03.pdf_**](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/ISC_24_BILLWG-01_03.pdf) is the ISC working paper
+       for the 2024 MLS rebuilding analysis
 
 ### **Contributions**
 > * Show the name of your contributed file in a comment on the first line
