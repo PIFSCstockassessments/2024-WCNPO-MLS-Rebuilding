@@ -2,22 +2,17 @@
 
 ### **Purpose** 
 > This folder stores background information, data, and analytical work
-> for the CMM 24-06 rebuilding scenarios conducted by the ISC
+> for the CMM 24-06 rebuilding scenario projections conducted by the ISC
 > for the Striped Marlin stock (MLS) in the Western and Central North Pacific Ocean.
 
 ### **Folder Structure**
-> * **/2024-results** contains the results of the 2024 rebuilding analysis 
-> * **/2025-MLS-projections** contains the 2025 projection results under CMM 24-06
-> * **/base contains** the SS3 base case 2023 stock assessment files 
-> * **/bin** contains the AGEPRO executable "agepro_MLS_rebuild.exe" 
-> * **/Bootstrap-numbers-at-age** contains the AGEPRO bootstrap numbers-at-age files
-> * **/Build-Input-File** contains scripts to build AGEPRO input files
-> * **/Data** contains MLS fishery data 
-> * **/References** contains some background references
-> * **/Presentations** contains MLS rebuilding analysis presentations 
-> * **/Rscripts** contains key R scripts to extract data from assessment files 
-> * [**_ISC_24_BILLWG-01_03.pdf_**](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/ISC_24_BILLWG-01_03.pdf) is the ISC working paper
-       for the 2024 MLS rebuilding analysis
+> * **/code** contains the projection code including R scripts, the AGEPRO exectuable, and input files 
+> * **/data** contains data for projection catch, fleet groups, scenarios, CMM 24-06, and references
+> * **/output** contains projections output for the base case runs and sensitivity analyses
+
+> * [_2025 MLS projections for CMM 24-06.docx_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/2025-MLS-projections/2025%20MLS%20projections%20for%20CMM%2024-06.docx)  is the draft ISC presentation for the CMM 2024-06 rebuilding scenarios
+> * [_2025 MLS projections for CMM 24-06.pptx_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/2025-MLS-projections/2025%20MLS%20projections%20for%20CMM%2024-06.pptx)  is the draft ISC working paper for the CMM 2024-06 rebuilding scenarios
+> * [_ISC_24_BILLWG-01_03.pdf_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/ISC_24_BILLWG-01_03.pdf)  is the ISC working paper for the 2024 rebuilding analyses
 
 ### **Contributions**
 > * Show the name of your contributed file in a comment on the first line

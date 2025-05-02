@@ -24,3 +24,4 @@
 /ignore files
 
 ##ignore all confidential files
+.Rproj.user
