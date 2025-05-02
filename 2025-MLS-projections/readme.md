@@ -9,7 +9,6 @@
 > * **/code** contains the projection code including R scripts, the AGEPRO exectuable, and input files 
 > * **/data** contains data for projection catch, fleet groups, scenarios, CMM 24-06, and references
 > * **/output** contains projections output for the base case runs and sensitivity analyses
-
 > * [_2025 MLS projections for CMM 24-06.docx_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/2025-MLS-projections/2025%20MLS%20projections%20for%20CMM%2024-06.docx)  is the draft ISC presentation for the CMM 2024-06 rebuilding scenarios
 > * [_2025 MLS projections for CMM 24-06.pptx_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/2025-MLS-projections/2025%20MLS%20projections%20for%20CMM%2024-06.pptx)  is the draft ISC working paper for the CMM 2024-06 rebuilding scenarios
 > * [_ISC_24_BILLWG-01_03.pdf_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/ISC_24_BILLWG-01_03.pdf)  is the ISC working paper for the 2024 rebuilding analyses
