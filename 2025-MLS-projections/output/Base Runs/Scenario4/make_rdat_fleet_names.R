@@ -1,7 +1,7 @@
 # Define file paths
-input_file <- "2025_MLS_scenario1.rdat"
+input_file <- "2025_MLS_scenario4.rdat"
 replacement_file <- "fleet_names.txt"
-output_file <- "2025_MLS_scenario1_modified.rdat"
+output_file <- "2025_MLS_scenario4_modified.rdat"
 
 # Read the input file
 inp_lines <- readLines(input_file)
