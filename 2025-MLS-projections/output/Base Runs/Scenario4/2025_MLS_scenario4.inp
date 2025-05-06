@@ -2,7 +2,7 @@ AGEPRO VERSION 4.0
 [CASEID]
 2025_MLS_scenario4
 [GENERAL]
-2021  2075  1  15  10  9  3  0  456789
+2021  2075  1  15  100  9  3  0  456789
 [BOOTSTRAP]
 100  1000
 C:\Users\jon.brodziak\Desktop\2024 WCNPO MLS Rebuilding\Bootstrap-numbers-at-age\2023_WCNPOMLS.bsn

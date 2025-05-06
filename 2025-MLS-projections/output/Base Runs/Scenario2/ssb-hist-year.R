@@ -64,7 +64,7 @@ repeat {
 year_values <- sb[, user_input]
 
 # Compute summary statistics
-median_val <- median(year_values)
+median_val <- round(median(year_values), -1)
 ci_80 <- quantile(year_values, probs = c(0.10, 0.90))
 p_rebuilt <- round(mean(year_values > 3660), 2)  # rounded to nearest 0.01
 
@@ -86,11 +86,17 @@ p <- ggplot(plot_df, aes(x = Biomass)) +
     y = "Density",
     title = paste("Spawning Biomass Distribution in", user_input),
     subtitle = sprintf(
-      "P(Rebuilt) ≈ %.2f, Median = %.0f, 80%% CI = [%.0f, %.0f]",
-      p_rebuilt, median_val, ci_80[1], ci_80[2]
+      "P(Rebuilt) ≈ %.2f, Median ≈ %.0f mt",
+      p_rebuilt, median_val
     )
   ) +
-  theme_minimal()
+  theme_minimal(base_size = 22) +
+  theme(
+    plot.title = element_text(size = 24, face = "bold"),
+    plot.subtitle = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    axis.text = element_text(size = 18)
+  )
 
 # Display the plot in RStudio
 print(p)

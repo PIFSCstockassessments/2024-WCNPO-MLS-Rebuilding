@@ -85,11 +85,17 @@ p <- ggplot(plot_df, aes(x = Fishing_Mortality)) +
     y = "Density",
     title = paste("Fishing Mortality Distribution in", user_input),
     subtitle = sprintf(
-      "P(Overfishing) ≈ %.2f, Median = %.2f, 80%% CI = [%.2f, %.2f]",
-      p_overfishing, median_val, ci_80[1], ci_80[2]
+      "P(Overfishing) ≈ %.2f, Median ≈ %.2f",
+      p_overfishing, median_val
     )
   ) +
-  theme_minimal()
+  theme_minimal(base_size = 22) +
+  theme(
+    plot.title = element_text(size = 24, face = "bold"),
+    plot.subtitle = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    axis.text = element_text(size = 18)
+  )
 
 print(p)
 
