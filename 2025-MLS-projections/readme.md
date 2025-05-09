@@ -14,7 +14,7 @@
 > * [_ISC_24_BILLWG-01_03.pdf_](https://github.com/PIFSCstockassessments/2024-WCNPO-MLS-Rebuilding/blob/main/ISC_24_BILLWG-01_03.pdf)  is the ISC working paper for the 2024 rebuilding analyses
 
 ### **Contributions**
-> * Show the name of your contributed file in a comment on the first line
+> * Include the name of your contributed file in a comment on the first line
 > * Document any contributed R scripts
 > * Update the readme.md file to describe changes in folder contents
 
