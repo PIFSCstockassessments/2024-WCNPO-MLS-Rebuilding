@@ -2,7 +2,7 @@
 
 ### **Purpose** 
 > This folder stores background information, data, and analytical work
-> for the CMM 24-06 rebuilding scenario projections conducted by the ISC
+> for the CMM 2024-06 rebuilding scenario projections conducted by the ISC
 > for the Striped Marlin stock (MLS) in the Western and Central North Pacific Ocean.
 
 ### **Folder Structure**
