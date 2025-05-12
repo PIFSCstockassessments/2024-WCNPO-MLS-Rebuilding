@@ -2,7 +2,7 @@
 
 ### **Purpose**
 
-> The "code"" folder stores R scripts, input files, and AGEPRO executable for running rebuilding projections under CMM 2024-06 for WCNPO striped marlin
+> The "code" folder stores R scripts, input files, and AGEPRO executable for running rebuilding projections under CMM 2024-06 for WCNPO striped marlin
 
 ### **Files**
 
