@@ -7,7 +7,7 @@
 
 ### **Folder Structure**
 > * **/2024-results** contains the results of the 2024 rebuilding analysis 
-> * **/2025-MLS-projections** contains the 2025 projection results under CMM 24-06
+> * **/2025-MLS-projections** contains the 2025 projection results under WCPFC CMM 2024-06
 > * **/base contains** the SS3 base case 2023 stock assessment files 
 > * **/bin** contains the AGEPRO executable "agepro_MLS_rebuild.exe" 
 > * **/Bootstrap-numbers-at-age** contains the AGEPRO bootstrap numbers-at-age files
