@@ -2,7 +2,7 @@
 
 ### **Purpose**
 
-> The "data" folder stores catch data, population abundance data, CMM 2024-06 information, fleet information, and rebuilding scenario information for running rebuilding projections under CMM 2024-06 for WCNPO striped marlin
+> The data folder stores catch data, population abundance data, CMM 2024-06 information, fleet information, and rebuilding scenario information for running rebuilding projections under CMM 2024-06 for WCNPO striped marlin
 
 ### **Folder Structure**
 
